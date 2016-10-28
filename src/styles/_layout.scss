@@ -1,0 +1,46 @@
+* {
+  box-sizing: border-box;
+}
+body {
+  margin: 0;
+  padding: 0;
+  color: rgba(0,0,0,.87);
+  margin-bottom: 48px;
+  -webkit-tap-highlight-color: rgba(255, 255, 255, 0);
+  overflow: hidden;
+}
+
+.page-container {
+  margin-top: 56px;
+  padding-left: 280px;
+
+}
+
+.page-content {
+  padding: 16px;
+  overflow-y: auto;
+  height: calc(100vh - 56px);
+}
+
+.page-tab-content {
+  padding: 16px;
+  overflow-y: auto;
+  height: calc(100vh - 96px);
+}
+
+pre[class*=language-],
+code {
+  margin: 0;
+
+}
+code[class*=language-],
+pre[class*=language-] {
+  white-space: pre-wrap;
+  background-color: #fafafa;
+  font-family: 'Roboto Mono';
+  font-size: 14px;
+}
+.xen-no-margin {
+  margin: 0;
+}
+
