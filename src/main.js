@@ -20,26 +20,26 @@ var router = new VueRouter({
       component: Home
     },
     {
-      path: '/cards',
+      path: '/components/cards',
       component: CardsPage,
       keepAlive: true
     },
     {
-      path: '/buttons',
+      path: '/components/buttons',
       component: ButtonsPage,
       keepAlive: true
     },
     {
-      path: '/lists',
+      path: '/components/lists',
       component: ListsPage,
       keepAlive: true
     },
     {
-      path: '/tabs',
+      path: '/components/tabs',
       component: TabsPage
     },
     {
-      path: '/dividers',
+      path: '/components/dividers',
       component: DividersPage
     }
 

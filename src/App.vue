@@ -7,32 +7,35 @@
       </section>
       <section class="xen-nav">
 
-        <xen-list :dense="true" ref="Home">
+        <xen-list :dense="true" ref="home">
           <router-link to="/">
             <xen-list-item text="Home" :bold="true"></xen-list-item>
           </router-link>
         </xen-list>
         <xen-divider></xen-divider>
-        <xen-list :dense="true" ref="components">
-          <router-link to="/">
-            <xen-list-item text="Components" :bold="true" @click.native.native="expand('components')"></xen-list-item>
+
+        <xen-list :dense="true">
+          <xen-list-item text="Components" :bold="true" @click.native="expand('components')"></xen-list-item>
+        </xen-list>
+
+        <xen-list :dense="true" ref="components" style="height: 0px; overflow: hidden;" class="xen-sublist">
+          <router-link to="/components/cards">
+            <xen-list-item ref="cards" text="Cards" :bold="true"></xen-list-item>
           </router-link>
-          <router-link to="/cards">
-            <xen-list-item  text="Cards" :bold="true"></xen-list-item>
+          <router-link to="/components/buttons">
+            <xen-list-item ref="buttons" text="Buttons" :bold="true"></xen-list-item>
           </router-link>
-          <router-link to="/buttons">
-            <xen-list-item ref="buttons" text="Buttons"></xen-list-item>
+          <router-link to="/components/lists">
+            <xen-list-item ref="lists" text="Lists" :bold="true"></xen-list-item>
           </router-link>
-          <router-link to="/lists">
-            <xen-list-item ref="lists" text="Lists"></xen-list-item>
+          <router-link to="/components/tabs">
+            <xen-list-item ref="tabs" text="Tabs" :bold="true"></xen-list-item>
           </router-link>
-          <router-link to="/tabs">
-            <xen-list-item ref="tabs" text="Tabs"></xen-list-item>
-          </router-link>
-          <router-link to="/dividers">
-            <xen-list-item ref="dividers" text="Dividers"></xen-list-item>
+          <router-link to="/components/dividers">
+            <xen-list-item ref="dividers" text="Dividers" :bold="true"></xen-list-item>
           </router-link>
         </xen-list>
+
       </section>
     </xen-sidebar>
     <transition name="fade">      
@@ -46,8 +49,9 @@
     </div>
     <div class="page-container">
       <transition name="router-fade">
-        <router-view></router-view>
-        
+        <keep-alive>
+          <router-view></router-view>
+        </keep-alive> 
       </transition>
     </div>
   </div>
@@ -100,9 +104,12 @@
         this.sidebarOpen = !this.sidebarOpen
       },
       expand (list) {
+        console.log(list)
         if (this.$refs[list].$el.style.height === '0px') {
           this.$refs[list].$el.style.height = this.$refs[list].$el.scrollHeight + 'px'
         } else {
+          // console.log(this.$refs)
+          // console.log(list)
           this.$refs[list].$el.style.height = 0
         }
       },
@@ -113,11 +120,11 @@
       },
       setActive (listItem) {
         // console.log(this.$refs)
-        // for (var i in this.$refs) {
-        //   this.$refs[i].$el.classList.remove('active')
-        // }
-        // this.$refs[listItem].$el.classList.add('active')
-        // this.active = this.$refs[listItem].text
+        for (var i in this.$refs) {
+          this.$refs[i].$el.classList.remove('active')
+        }
+        this.$refs[listItem].$el.classList.add('active')
+        this.active = this.$refs[listItem].text
       }
     }
   }
@@ -148,6 +155,7 @@
   }
   .xen-nav .xen-list {
     margin: 0;
+    transition: all 300ms $material-easing;
   }
   .xen-sidebar,
   .page-container,
@@ -173,6 +181,14 @@
     &.hide {
       animation: fade-out .5s forwards;
     }
+  }
+
+  .xen-nav .active {
+    color: $primary-color;
+  }
+
+  .xen-list.xen-sublist .xen-list-item {
+    padding-left: 32px;
   }
 
   @media only screen and (max-width: $small-breakpoint) {
