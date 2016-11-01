@@ -14,7 +14,7 @@
   line-height: 20px;
   background-color: transparent;
   cursor: pointer;
-  // transition: all 375ms $swift-in;
+  transition: all 375ms $swift-in;
   //margin: 4px;
   user-select: none;
   z-index: 1;
@@ -118,6 +118,7 @@
   i {
     margin: auto;
     user-select: none;
+    pointer-events: none;
   }
   
   &.flat {

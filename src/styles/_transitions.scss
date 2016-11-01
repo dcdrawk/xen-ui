@@ -24,7 +24,7 @@
   top: 56px;
   right: 0;
   //overflow: scroll;
-  transition: opacity .3s $swift-in;
+  transition: opacity 375ms $material-easing;
   opacity: 1;
   display: block;
   left: 0;
@@ -43,5 +43,5 @@
 }
 
 .router-fade-enter-active {
-  //transition-delay: .15s;
+  transition-delay: 375ms;
 }

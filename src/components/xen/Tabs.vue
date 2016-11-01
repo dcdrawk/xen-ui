@@ -1,5 +1,5 @@
 <template>
-<div class="xen-tabs" :class="{'icons': icons, 'icons-only': iconsOnly}" v-cloak>
+<div class="xen-tabs" :class="{'icons': icons, 'icons-only': iconsOnly}">
   <!--Tab Items-->
   <div class="xen-tab-items-container" :class="theme ? 'xen-theme-' + theme : ''">
     <div ref="tabItems" class="xen-tab-items">
@@ -55,12 +55,17 @@ export default {
 
   mounted () {
     this.$nextTick(() => {
+    // setTimeout(() => {
+      console.log('next tick tabs')
+      console.log(this.defaultTab)
+      console.log(this)
       this.offset = 0
 
       this.active = this.defaultTab
       if (this.icons) {
         this.getIcons()
       } else {
+        console.log('update bar...')
         this.updateBar(0)
       }
     })
@@ -84,11 +89,16 @@ export default {
     },
 
     updateBar (index) {
+      console.log(index)
+      console.log(this.$refs.tabs)
       if (this.$refs.tabs) {
+        console.log('there are tabs')
         var button = this.findTab(index)
         var tabBar = this.$refs['active-tab-bar']
         // var tabs = this.$slots
-        this.scale = button.clientWidth / 100
+        this.scale = button.offsetWidth / 100
+        console.dir(button)
+        console.log(this.scale)
         this.translate = 0
 
         for (var i in this.$refs.tabs) {
@@ -99,6 +109,8 @@ export default {
           }
         }
         tabBar.style.transform = `translateX(${this.translate + this.offset}px) scaleX(${this.scale})`
+
+        console.log(tabBar.style.transform)
         tabBar.style.color = 'red'
       }
     },
@@ -159,5 +171,9 @@ export default {
 
   .xen-tab-items {
     height: 40px;
+  }
+
+  .xen-tabs {
+    font-size: 16px;
   }
 </style>

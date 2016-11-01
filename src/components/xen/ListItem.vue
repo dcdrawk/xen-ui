@@ -39,23 +39,6 @@
     // Components
     components: {
       XenRipple
-    },
-
-    // Data
-    data () {
-      return {
-        msg: 'Hello World!'
-      }
-    },
-
-    // Methods
-    methods: {
-
-    },
-
-    // Mounted
-    mounted () {
-      console.log(this)
     }
 
   }

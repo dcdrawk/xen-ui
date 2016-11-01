@@ -26,7 +26,8 @@
     data () {
       return {
         msg: 'Hello World!',
-        showRipple: false
+        showRipple: false,
+        rippleTimeout: undefined
       }
     },
 
@@ -36,17 +37,21 @@
         this.showRipple = true
         var rippleScale = this.$parent.$el.clientWidth * 1.5 / 24
         this.$nextTick(() => {
-          this.$refs.dot.style.left = ev.layerX - 12 + 'px'
-          this.$refs.dot.style.top = ev.layerY - 12 + 'px'
+          console.log(ev)
+          this.$refs.dot.style.left = ev.offsetX - 12 + 'px'
+          this.$refs.dot.style.top = ev.offsetY - 12 + 'px'
           this.$nextTick(() => {
             gsap.TweenLite.to(this.$refs.dot, 0, { scaleX: 1, scaleY: 1, opacity: 0.2 })
-            gsap.TweenLite.to(this.$refs.dot, 0.375 * (rippleScale / 100 + 1), { scaleX: rippleScale, scaleY: rippleScale, opacity: 0, ease: gsap.Power1.easeOut, onComplete: this.rippleComplete() })
+            gsap.TweenLite.to(this.$refs.dot, 0.375 * (rippleScale / 100 + 1), { scaleX: rippleScale, scaleY: rippleScale, opacity: 0, ease: gsap.Power1.easeOut, onComplete: this.rippleComplete(rippleScale) })
           })
         })
       },
 
-      rippleComplete () {
-        console.log('done')
+      rippleComplete (rippleScale) {
+        window.clearTimeout(this.rippleTimeout)
+        this.rippleTimeout = window.setTimeout(() => {
+          this.showRipple = false
+        }, 375 * (rippleScale / 100 + 1))
       }
     },
 

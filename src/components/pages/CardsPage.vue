@@ -175,8 +175,6 @@ export default {
 
     // Mounted
     mounted () {
-      this.test = this.$refs.default
-      // console.log(this)
       Prism.highlightAll()
     }
 

@@ -20,6 +20,7 @@
       'raised',
       'disabled'
     ],
+
     // Components
     components: {
       XenRipple
@@ -30,16 +31,6 @@
       return {
         msg: 'Hello World!'
       }
-    },
-
-    // Methods
-    methods () {
-
-    },
-
-    // Mounted
-    mounted () {
-
     }
 
   }

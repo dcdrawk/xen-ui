@@ -1,7 +1,18 @@
+// The main Vue Instance
+// Docs: http://vuejs.org/api/
 import Vue from 'vue'
+
+// Import the App Component
 import App from './App'
+
+// The Vue Router Instance
+// Docs: http://router.vuejs.org/en/index.html
 import VueRouter from 'vue-router'
+
+// Import the components for each page
 import Home from './components/Home'
+
+// Component Pages
 import CardsPage from './components/pages/CardsPage'
 import ButtonsPage from './components/pages/ButtonsPage'
 import ListsPage from './components/pages/ListsPage'
@@ -14,11 +25,11 @@ Vue.use(VueRouter)
 // Map the Routes and Components
 var router = new VueRouter({
   routes: [
-    // Components
     {
       path: '/',
       component: Home
     },
+    // Components
     {
       path: '/components/cards',
       component: CardsPage,
@@ -42,7 +53,6 @@ var router = new VueRouter({
       path: '/components/dividers',
       component: DividersPage
     }
-
   ]
 })
 

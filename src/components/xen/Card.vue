@@ -7,29 +7,7 @@
 <script>
   export default {
 
-    name: 'xen-card',
-
-    // Components
-    components: {
-
-    },
-
-    // Data
-    data () {
-      return {
-        msg: 'Hello World!'
-      }
-    },
-
-    // Methods
-    methods: {
-
-    },
-
-    // Mounted
-    mounted () {
-
-    }
+    name: 'xen-card'
 
   }
 </script>
