@@ -40,13 +40,7 @@
     </xen-sidebar>
     <transition name="fade">      
       <div class="xen-sidebar-backdrop" v-if="sidebarOpen" @click="toggleSidebar()"></div>
-    </transition>
-    <div class="page-toolbar">
-      <xen-toolbar>
-        <i class="material-icons xen-menu-button" @click="toggleSidebar()">menu</i>
-        <span class="title">Cards</span>
-      </xen-toolbar>
-    </div>
+    </transition>    
     <div class="page-container">
       <transition name="router-fade">
         <keep-alive>
@@ -88,6 +82,10 @@
       this.$nextTick(() => {
         this.expand(pathArray[0])
         this.setActive(pathArray[1])
+
+        this.$on('toggle-sidebar', () => {
+          console.log('!!!!!!!!!!!')
+        })
       })
 
       window.onpopstate = (event) => {
@@ -146,7 +144,7 @@
     text-align: center;
   }
   .page-toolbar {
-    padding-left: 280px;
+    // padding-left: 280px;
     top: -56px;
     position: relative;
   }
@@ -164,7 +162,7 @@
     transition: all 375ms $material-easing;
   }
 
-  .xen-menu-button {
+  .xen-menu-button.xen-icon-button-container {
     display: none;
   }
 
@@ -173,7 +171,7 @@
     height: 100vh;
     width: 100vw;
     background-color: rgba(0,0,0,.52);
-    z-index: 5;
+    z-index: 9;
     top: 0;
     &.show {
       animation: fade-in .5s forwards;
@@ -192,7 +190,7 @@
   }
 
   @media only screen and (max-width: $small-breakpoint) {
-    .xen-menu-button {
+    .xen-menu-button.xen-icon-button-container {
       display: inline-block;
     }
     .xen-sidebar {
@@ -201,10 +199,6 @@
 
     .page-container, .page-toolbar {
       padding-left: 0;
-    }
-
-    .toolbar {
-
     }
 
     .xen-sidebar.xen-sidebar-open {

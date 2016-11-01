@@ -20,12 +20,14 @@ body {
 .page-content {
   padding: 16px;
   overflow-y: auto;
+  height: 100vh;
   height: calc(100vh - 56px);
 }
 
 .page-tab-content {
   padding: 16px;
   overflow-y: auto;
+  height: 100vh;
   height: calc(100vh - 96px);
 }
 
@@ -45,3 +47,19 @@ pre[class*=language-] {
   margin: 0;
 }
 
+.xen-page-title {
+  padding-left: 0;
+}
+
+.xen-icon-button-container.xen-menu-button {
+  position: absolute;
+  top: 8px;
+  left: 8px;
+  margin: 0;
+}
+
+@media only screen and (max-width: $small-breakpoint) {
+  .xen-page-title {
+    padding-left: 40px;
+  }
+} 

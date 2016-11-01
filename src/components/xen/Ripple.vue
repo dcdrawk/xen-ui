@@ -37,7 +37,6 @@
         this.showRipple = true
         var rippleScale = this.$parent.$el.clientWidth * 1.5 / 24
         this.$nextTick(() => {
-          console.log(ev)
           this.$refs.dot.style.left = ev.offsetX - 12 + 'px'
           this.$refs.dot.style.top = ev.offsetY - 12 + 'px'
           this.$nextTick(() => {

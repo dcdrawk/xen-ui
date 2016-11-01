@@ -1,26 +1,27 @@
 <template>
-<div class="xen-tabs" :class="{'icons': icons, 'icons-only': iconsOnly}">
-  <!--Tab Items-->
-  <div class="xen-tab-items-container" :class="theme ? 'xen-theme-' + theme : ''">
-    <div ref="tabItems" class="xen-tab-items">
-      <xen-button class="xen-tab-button" v-for="(tab, key, index) in $slots" @click.native="selectTab(key, index)" :class="{'active': active === key}" v-if="key !== 'default'" ref="tabs">
-        <i v-show="icons" class="material-icons">
-          {{ iconValues[key] }}
-        </i>
-        {{ key }}
-      </xen-button>
+  <div class="xen-tabs" :class="{'icons': icons, 'icons-only': iconsOnly}">
+    <!--Tab Items-->
+    <div class="xen-tab-items-container" :class="theme ? 'xen-theme-' + theme : ''">
+      <div ref="tabItems" class="xen-tab-items">
+        <xen-button class="xen-tab-button" v-for="(tab, key, index) in $slots" @click.native="selectTab(key, index)" :class="{'active': active === key}" v-show="key !== 'default'" ref="tabs">
+          <i v-show="icons" class="xen-tab-icon material-icons">
+            {{ iconValues[key] }}
+          </i>
+          <span v-if="!iconsOnly" class="xen-tab-text">{{ key }}</span>
+        </xen-button>
+      </div>
+      <div ref="active-tab-bar" class="xen-active-tab-bar" :class="{'xen-theme-accent': !theme, 'xen-theme-white': theme}"></div>
     </div>
-    <div ref="active-tab-bar" class="xen-active-tab-bar"></div>
+    <!--Tab Content-->
+    <div class="xen-tab-content" v-for="(tab, key, index) in $slots" v-show="active === key">
+      <slot :name="key"></slot>
+    </div>
   </div>
-  <!--Tab Content-->
-  <div class="xen-tab-content" v-for="(tab, key, index) in $slots" v-show="active === key">
-    <slot :name="key"></slot>
-  </div>
-</div>
 </template>
 
 <script>
 import XenButton from './Button'
+import Hammer from 'hammerjs'
 
 export default {
 
@@ -40,7 +41,7 @@ export default {
 
   data () {
     return {
-      active: '',
+      active: this.defaultTab,
       iconValues: [''],
       offset: 0,
       translate: 0,
@@ -55,23 +56,19 @@ export default {
 
   mounted () {
     this.$nextTick(() => {
-    // setTimeout(() => {
-      console.log('next tick tabs')
-      console.log(this.defaultTab)
-      console.log(this)
       this.offset = 0
-
       this.active = this.defaultTab
       if (this.icons) {
         this.getIcons()
       } else {
-        console.log('update bar...')
         this.updateBar(0)
       }
+      this.hammerTabs()
     })
   },
 
   methods: {
+    // Select a tab
     selectTab (key, index) {
       this.active = key
       this.index = index
@@ -79,6 +76,7 @@ export default {
       this.updateBar(index)
     },
 
+    // Find the selected tab, set it as active
     findTab (index) {
       for (var i in this.$refs.tabs) {
         var item = this.$refs.tabs[i]
@@ -88,19 +86,13 @@ export default {
       }
     },
 
+    // Update the position and scale of the active tab bar
     updateBar (index) {
-      console.log(index)
-      console.log(this.$refs.tabs)
       if (this.$refs.tabs) {
-        console.log('there are tabs')
         var button = this.findTab(index)
         var tabBar = this.$refs['active-tab-bar']
-        // var tabs = this.$slots
         this.scale = button.offsetWidth / 100
-        console.dir(button)
-        console.log(this.scale)
         this.translate = 0
-
         for (var i in this.$refs.tabs) {
           if (+i !== this.index) {
             this.translate += this.$refs.tabs[i].$el.clientWidth
@@ -109,24 +101,18 @@ export default {
           }
         }
         tabBar.style.transform = `translateX(${this.translate + this.offset}px) scaleX(${this.scale})`
-
-        console.log(tabBar.style.transform)
-        tabBar.style.color = 'red'
       }
     },
 
+    // Scroll the tab items if they overflow the container
     scrollTabs (index) {
       var tabItems = this.$refs.tabItems
-      // var tabs = this.$slots
       var button = this.$refs.tabs[index].$el
       this.activeOffset = button.offsetLeft
       this.activePosition = button.offsetLeft
 
       if (button.clientWidth + button.offsetLeft > tabItems.clientWidth) {
         this.offset = (tabItems.clientWidth - button.offsetLeft - button.clientWidth)
-        if (button !== this.$refs.tabItems.lastElementChild) {
-          this.offset -= 64
-        }
         tabItems.style.transform = `translateX(${this.offset}px)`
       } else {
         this.offset = 0
@@ -134,6 +120,7 @@ export default {
       }
     },
 
+    // Gets the array of icons from the slots
     getIcons () {
       var iconArray = {}
       for (var i in this.$slots) {
@@ -143,10 +130,57 @@ export default {
       }
       this.iconValues = iconArray
       this.updateBar(0)
+    },
+
+    hammerTabs () {
+      var tabHammer = new Hammer(this.$refs.tabItems)
+      var tabItems = this.$refs.tabItems
+      var activeTabBar = this.$refs['active-tab-bar']
+
+      // Let the user pan the tabs back and forth if they are too big for their container.
+      tabHammer.on('pan', (ev) => {
+        var translate = this.translate + ev.deltaX + this.offset - this.activeOffset
+
+        if (translate < 0 && translate >= tabItems.clientWidth - tabItems.scrollWidth) {
+          tabItems.style.transform = `translateX(${translate}px)`
+          activeTabBar.style.transform = `translateX(${translate + this.activePosition}px) scaleX(${this.scale})`
+        } else if (translate < tabItems.clientWidth - tabItems.scrollWidth) {
+          tabItems.style.transform = `translateX(${(tabItems.clientWidth - tabItems.scrollWidth)}px)`
+          activeTabBar.style.transform = `translateX(${(tabItems.clientWidth - tabItems.scrollWidth + this.activePosition)}px) scaleX(${this.scale})`
+        } else {
+          tabItems.style.transform = `translateX(0px)`
+          activeTabBar.style.transform = `translateX(${this.activePosition}px) scaleX(${this.scale})`
+        }
+      })
+
+      // Pan Start
+      tabHammer.on('panstart', (ev) => {
+        tabItems.classList.add('panning')
+        activeTabBar.classList.add('panning')
+      })
+
+      // Pan End
+      tabHammer.on('panend', (ev) => {
+        var translate = this.translate + ev.deltaX + this.offset - this.activeOffset
+        tabItems.classList.remove('panning')
+        activeTabBar.classList.remove('panning')
+
+        if (translate < 0 && translate > tabItems.clientWidth * -1) {
+          this.translate = this.translate + ev.deltaX + this.offset - this.activeOffset
+        } else if (translate < tabItems.clientWidth * -1) {
+          this.translate = tabItems.clientWidth * -1
+        } else {
+          this.translate = 0
+        }
+
+        this.offset = 0
+        this.activeOffset = 0
+      })
     }
   },
 
   watch: {
+    // Watch the icons only property, update the tab bar accordingly
     'iconsOnly': {
       handler: function (val, oldVal) {
         this.updateBar(this.defaultTab)
@@ -169,11 +203,16 @@ export default {
     }
   }
 
-  .xen-tab-items {
-    height: 40px;
+  .xen-tabs {
+    // font-size: 16px;
+    .xen-tab-icon  {
+      margin: auto;
+      text-align: center;
+      pointer-events: none;
+    }
   }
 
-  .xen-tabs {
-    font-size: 16px;
+  .xen-tab-text {
+    pointer-events: none;
   }
 </style>

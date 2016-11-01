@@ -1,4 +1,16 @@
 // Xen Theme Colors
+// Primary
+.xen-theme-primary {
+	background-color: $primary-color;
+	color: $white;
+}
+
+// Accent
+.xen-theme-accent {
+	background-color: $accent-color;
+	color: $white;
+}
+
 // Red
 .xen-theme-red {
 	background-color: $clr-red;
@@ -56,7 +68,8 @@
 // Green
 .xen-theme-green {
 	background-color: $clr-green;
-	color: $primary-text;
+	// color: $primary-text;
+	color: $white;
 }
 
 // Light Green
@@ -206,4 +219,8 @@
 // Blue Grey Color
 .xen-color-blue-grey {
 	color: $clr-blue-grey;
+}
+
+.xen-color-white {
+	color: #fff;
 }

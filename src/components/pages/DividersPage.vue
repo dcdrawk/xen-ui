@@ -1,88 +1,91 @@
 <template>
-  <xen-tabs theme="indigo" default-tab="Example">
-    <div slot="Example">
-      <section class="page-tab-content">
+  <div>
+    <xen-page-toolbar class="xen-theme-indigo" title="Dividers"></xen-page-toolbar>
+    <xen-tabs theme="indigo" default-tab="Example">
+      <div slot="Example">
+        <section class="page-tab-content">
 
-        <!-- Default Divider -->
-        <xen-card>
-          <xen-card-header background="#eee">
-            <h2 class="title">Default Divider<h2>
-          </xen-card-header>
-          <xen-card-content>
-            <xen-divider></xen-divider>
-          </xen-card-content>
-        </xen-card>
-
-        <!-- Divider in List-->
-        <xen-card>
-          <xen-card-header background="#eee">
-            <h2 class="title">Divider in List</h2>
-          </xen-card-header>
-          <xen-card-content>
-            <xen-list>
-              <xen-list-item text="Two Line Item" secondary-text="Duis autem vel eum iriure dolor in hendrerit in vulputate"></xen-list-item>
-              <xen-list-item text="Two Line Item" secondary-text="Lorem ipsum dolor sit amet, consectetur adipiscing elit"></xen-list-item>
+          <!-- Default Divider -->
+          <xen-card>
+            <xen-card-header background="#eee">
+              <h2 class="title">Default Divider</h2>
+            </xen-card-header>
+            <xen-card-content>
               <xen-divider></xen-divider>
-              <xen-list-item text="Two Line Item" secondary-text="Duis autem vel eum iriure dolor in hendrerit in vulputate velit esse"></xen-list-item>
-              <xen-list-item text="Two Line Item" secondary-text="Adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore erat volutpat."></xen-list-item>
-            </xen-list>
-          </xen-card-content>
-        </xen-card>
-      </section>
-    </div>
+            </xen-card-content>
+          </xen-card>
 
-    <!-- Divider Template -->
-    <div slot="Template">
-      <div class="page-tab-content">
-
-        <!-- Default Divider Template -->
-        <xen-card>
-          <xen-card-header background="#eee">
-            <h2 class="title">Default Divider</h2>
-          </xen-card-header>
-          <xen-card-content class="xen-no-margin">
-            <pre><code class="language-html">{{ dividerTemplate }}</code></pre>            
-          </xen-card-content>
-        </xen-card>
-
-        <!-- Divider in List Template -->
-        <xen-card>
-          <xen-card-header background="#eee">
-            <h2 class="title">Divider in List</h2>
-          </xen-card-header>
-          <xen-card-content class="xen-no-margin">
-            <pre><code class="language-html">{{ dividerInListTemplate }}</code></pre>            
-          </xen-card-content>
-        </xen-card>
+          <!-- Divider in List-->
+          <xen-card>
+            <xen-card-header background="#eee">
+              <h2 class="title">Divider in List</h2>
+            </xen-card-header>
+            <xen-card-content>
+              <xen-list>
+                <xen-list-item text="Two Line Item" secondary-text="Duis autem vel eum iriure dolor in hendrerit in vulputate"></xen-list-item>
+                <xen-list-item text="Two Line Item" secondary-text="Lorem ipsum dolor sit amet, consectetur adipiscing elit"></xen-list-item>
+                <xen-divider></xen-divider>
+                <xen-list-item text="Two Line Item" secondary-text="Duis autem vel eum iriure dolor in hendrerit in vulputate velit esse"></xen-list-item>
+                <xen-list-item text="Two Line Item" secondary-text="Adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore erat volutpat."></xen-list-item>
+              </xen-list>
+            </xen-card-content>
+          </xen-card>
+        </section>
       </div>
-    </div>
 
-    <!-- Divider Script -->
-    <div slot="Script">
-      <div class="page-tab-content"> 
+      <!-- Divider Template -->
+      <div slot="Template">
+        <div class="page-tab-content">
 
-        <!-- Default Divider Script -->         
-        <xen-card>
-          <xen-card-header background="#eee">
-            <h2 class="title">Default Divider</h2>
-          </xen-card-header>
-          <xen-card-content class="xen-no-margin">
-            <pre><code class="language-javaScript">{{ dividerScript }}</code></pre>            
-          </xen-card-content>
-        </xen-card>
+          <!-- Default Divider Template -->
+          <xen-card>
+            <xen-card-header background="#eee">
+              <h2 class="title">Default Divider</h2>
+            </xen-card-header>
+            <xen-card-content class="xen-no-margin">
+              <pre><code class="language-html">{{ dividerTemplate }}</code></pre>            
+            </xen-card-content>
+          </xen-card>
 
-        <!-- Divider in List Script -->         
-        <xen-card>
-          <xen-card-header background="#eee">
-            <h2 class="title">Divider in List</h2>
-          </xen-card-header>
-          <xen-card-content class="xen-no-margin">
-            <pre><code class="language-javaScript">{{ dividerInListScript }}</code></pre>            
-          </xen-card-content>
-        </xen-card>
+          <!-- Divider in List Template -->
+          <xen-card>
+            <xen-card-header background="#eee">
+              <h2 class="title">Divider in List</h2>
+            </xen-card-header>
+            <xen-card-content class="xen-no-margin">
+              <pre><code class="language-html">{{ dividerInListTemplate }}</code></pre>            
+            </xen-card-content>
+          </xen-card>
+        </div>
       </div>
-    </div>
-  </xen-tabs>
+
+      <!-- Divider Script -->
+      <div slot="Script">
+        <div class="page-tab-content"> 
+
+          <!-- Default Divider Script -->         
+          <xen-card>
+            <xen-card-header background="#eee">
+              <h2 class="title">Default Divider</h2>
+            </xen-card-header>
+            <xen-card-content class="xen-no-margin">
+              <pre><code class="language-javaScript">{{ dividerScript }}</code></pre>            
+            </xen-card-content>
+          </xen-card>
+
+          <!-- Divider in List Script -->         
+          <xen-card>
+            <xen-card-header background="#eee">
+              <h2 class="title">Divider in List</h2>
+            </xen-card-header>
+            <xen-card-content class="xen-no-margin">
+              <pre><code class="language-javaScript">{{ dividerInListScript }}</code></pre>            
+            </xen-card-content>
+          </xen-card>
+        </div>
+      </div>
+    </xen-tabs>
+  </div>
 </template>
 
 <script>
@@ -94,6 +97,7 @@
   import XenList from '../xen/List'
   import XenListItem from '../xen/ListItem'
   import Prism from 'prismjs'
+  import XenPageToolbar from '../xen/PageToolbar'
 
   export default {
 
@@ -107,7 +111,8 @@
       XenCardContent,
       XenDivider,
       XenList,
-      XenListItem
+      XenListItem,
+      XenPageToolbar
     },
 
     // Data

@@ -11,29 +11,7 @@
 
     props: [
       'dense'
-    ],
-
-    // Components
-    components: {
-
-    },
-
-    // Data
-    data () {
-      return {
-        msg: 'Hello World!'
-      }
-    },
-
-    // Methods
-    methods: {
-
-    },
-
-    // Mounted
-    mounted () {
-
-    }
+    ]
 
   }
 </script>

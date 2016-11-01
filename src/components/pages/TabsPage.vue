@@ -1,56 +1,99 @@
 <template>
-  <xen-tabs theme="indigo" default-tab="Example">
-    <div slot="Example">
-      <section class="page-tab-content">
+  <div>
+    <xen-page-toolbar class="xen-theme-indigo" title="Tabs"></xen-page-toolbar>
+    <xen-tabs theme="indigo" default-tab="Example">
+      <div slot="Example">
+        <section class="page-tab-content">
 
-        <!-- Default Divider -->
-        <xen-card>
-          <xen-card-header background="#eee">
-            <h2 class="title">Default Tabs<h2>
-          </xen-card-header>
-          <xen-card-content>
-            <xen-tabs theme="indigo" default-tab="test">
-              <div slot="test">
-                <div>Item One Content</div>
-              </div>
-              <div slot="Item Two">
-                Item Two Content
-              </div>
-              <div slot="Item Three">
-                Item Three Content
-              </div>
-            </xen-tabs>
-          </xen-card-content>
-        </xen-card>       
+          <!-- Default Divider -->
+          <xen-card>
+            <xen-card-header background="#eee">
+              <h2 class="title">Default Tabs</h2>
+            </xen-card-header>
+            <xen-card-content>
+              <xen-tabs default-tab="Messages">
+                <div slot="Messages">
+                  Messages Content
+                </div>
+                <div slot="Reminders">
+                  Reminders Content
+                </div>
+                <div slot="Notifications">
+                  Notifications Content
+                </div>
+              </xen-tabs>
+            </xen-card-content>
+          </xen-card>
+
+          <!-- Default Divider -->
+          <xen-card>
+            <xen-card-header background="#eee">
+              <h2 class="title">Themed tabs with icons</h2>
+            </xen-card-header>
+            <xen-card-content>
+              <xen-tabs theme="primary" default-tab="Messages" :icons="true">
+                <div slot="Messages" icon="message">
+                  Messages Content
+                </div>
+                <div slot="Reminders" icon="access_time">
+                  Reminders Content
+                </div>
+                <div slot="Notifications" icon="notifications">
+                  Notifications Content
+                </div>
+              </xen-tabs>
+            </xen-card-content>
+          </xen-card>
+
+          <!-- Default Divider -->
+          <xen-card>
+            <xen-card-header background="#eee">
+              <h2 class="title">Tabs with icons only</h2>
+            </xen-card-header>
+            <xen-card-content>
+              <xen-tabs default-tab="Messages" :icons="true" :icons-only="true">
+                <div slot="Messages" icon="message">
+                  Messages Content
+                </div>
+                <div slot="Reminders" icon="access_time">
+                  Reminders Content
+                </div>
+                <div slot="Notifications" icon="notifications">
+                  Notifications Content
+                </div>
+              </xen-tabs>
+            </xen-card-content>
+          </xen-card>
+        </section>
       </div>
-    </div>
 
-    <!-- Divider Script -->
-    <div slot="Script">
-      <div class="page-tab-content"> 
+      <!-- Divider Script -->
+      <div slot="Script">
+        <div class="page-tab-content"> 
 
-        <!-- Default Divider Script -->         
-        <xen-card>
-          <xen-card-header background="#eee">
-            <h2 class="title">Default Divider</h2>
-          </xen-card-header>
-          <xen-card-content class="xen-no-margin">
-            <pre><code class="language-javaScript">{{ dividerScript }}</code></pre>            
-          </xen-card-content>
-        </xen-card>
+          <!-- Default Divider Script -->         
+          <xen-card>
+            <xen-card-header background="#eee">
+              <h2 class="title">Default Divider</h2>
+            </xen-card-header>
+            <xen-card-content class="xen-no-margin">
+              <pre><code class="language-javaScript">{{ dividerScript }}</code></pre>            
+            </xen-card-content>
+          </xen-card>
 
-        <!-- Divider in List Script -->         
-        <xen-card>
-          <xen-card-header background="#eee">
-            <h2 class="title">Divider in List</h2>
-          </xen-card-header>
-          <xen-card-content class="xen-no-margin">
-            <pre><code class="language-javaScript">{{ dividerInListScript }}</code></pre>            
-          </xen-card-content>
-        </xen-card>
+          <!-- Divider in List Script -->         
+          <xen-card>
+            <xen-card-header background="#eee">
+              <h2 class="title">Divider in List</h2>
+            </xen-card-header>
+            <xen-card-content class="xen-no-margin">
+              <pre><code class="language-javaScript">{{ dividerInListScript }}</code></pre>            
+            </xen-card-content>
+          </xen-card>
+        </div>
       </div>
-    </div>
-  </xen-tabs>
+    </xen-tabs>
+  </div>
 </template>
 
 <script>
@@ -61,6 +104,7 @@
   import XenDivider from '../xen/Divider'
   import XenList from '../xen/List'
   import XenListItem from '../xen/ListItem'
+  import XenPageToolbar from '../xen/PageToolbar'
   import Prism from 'prismjs'
 
   export default {
@@ -75,7 +119,8 @@
       XenCardContent,
       XenDivider,
       XenList,
-      XenListItem
+      XenListItem,
+      XenPageToolbar
     },
 
     // Data
