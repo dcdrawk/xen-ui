@@ -4,19 +4,19 @@
       <div class="xen-dialog-backdrop" @click="hideDialog();" v-if="show"></div>
     </transition>
 
-    <!--Dialog-->
+    <!-- Dialog -->
     <transition name="dialog">
       <div class="xen-dialog" v-if="show" :class="{ 'small': small, 'medium': medium, 'large': large, 'has-actions': $slots.actions }">
 
-        <!--Dialog Title-->
+        <!-- Dialog Title -->
         <h3 class="xen-dialog-title title">{{ title }}</h3>
 
-        <!--Dialog Content-->
+        <!-- Dialog Content -->
         <div class="xen-dialog-content">
           <slot name="default"></slot>
         </div>
 
-        <!--Dialog Actions-->
+        <!-- Dialog Actions -->
         <div class="xen-dialog-actions-container" v-if="$slots.actions">
           <div class="xen-dialog-actions">
             <slot name="actions"></slot>
