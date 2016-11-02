@@ -43,6 +43,15 @@
           <router-link to="/components/dropdowns">
             <xen-list-item ref="dropdowns" text="Dropdowns" :bold="true"></xen-list-item>
           </router-link>
+          <router-link to="/components/expansion-panels">
+            <xen-list-item ref="expansionpanels" text="Expansion Panels" :bold="true"></xen-list-item>
+          </router-link>
+          <router-link to="/components/forms">
+            <xen-list-item ref="forms" text="Forms" :bold="true"></xen-list-item>
+          </router-link>
+          <router-link to="/components/sliders">
+            <xen-list-item ref="sliders" text="Sliders" :bold="true"></xen-list-item>
+          </router-link>
         </xen-list>
 
       </section>

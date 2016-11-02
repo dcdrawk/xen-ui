@@ -53,10 +53,10 @@
         this.target = this.$slots.target[0].elm
         if (this.position === 'right') {
           container.style.left = this.target.offsetLeft + this.target.clientWidth - container.clientWidth + 'px'
-          container.style.top = this.target.offsetTop + 'px'
+          // container.style.top = this.target.offsetTop + 'px'
         } else {
           container.style.left = this.target.offsetLeft + 'px'
-          container.style.top = this.target.offsetTop + 'px'
+          // container.style.top = this.target.offsetTop + 'px'
         }
       }, 0)
     },

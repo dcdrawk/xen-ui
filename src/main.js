@@ -21,6 +21,8 @@ import DividersPage from './components/pages/DividersPage'
 import ChipsPage from './components/pages/ChipsPage'
 import DialogPage from './components/pages/DialogPage'
 import DropdownPage from './components/pages/DropdownPage'
+import ExpansionPanelPage from './components/pages/ExpansionPanelPage'
+import FormsPage from './components/pages/FormsPage'
 
 // use Vue Router
 Vue.use(VueRouter)
@@ -67,7 +69,16 @@ var router = new VueRouter({
     {
       path: '/components/dropdowns',
       component: DropdownPage
+    },
+    {
+      path: '/components/expansion-panels',
+      component: ExpansionPanelPage
+    },
+    {
+      path: '/components/forms',
+      component: FormsPage
     }
+
   ]
 })
 

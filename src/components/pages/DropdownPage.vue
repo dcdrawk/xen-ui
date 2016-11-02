@@ -75,10 +75,20 @@
           <!-- Dropdown Template -->
           <xen-card>
             <xen-card-header background="#eee">
-              <h2 class="title">Default Component</h2>
+              <h2 class="title">Default Dropdown</h2>
             </xen-card-header>
             <xen-card-content class="xen-no-margin">
-              <pre><code class="language-html">{{ componentTemplate }}</code></pre>            
+              <pre><code class="language-html">{{ dropdownTemplate }}</code></pre>            
+            </xen-card-content>
+          </xen-card>
+
+          <!-- Right Aligned + Dense Template -->
+          <xen-card>
+            <xen-card-header background="#eee">
+              <h2 class="title">Right Aligned + Dense Dropdown</h2>
+            </xen-card-header>
+            <xen-card-content class="xen-no-margin">
+              <pre><code class="language-html">{{ rightDropdownTemplate }}</code></pre>            
             </xen-card-content>
           </xen-card>
 
@@ -92,10 +102,10 @@
           <!-- Default Dropdown Script -->         
           <xen-card>
             <xen-card-header background="#eee">
-              <h2 class="title">Default Component</h2>
+              <h2 class="title">Default Dropdown</h2>
             </xen-card-header>
             <xen-card-content class="xen-no-margin">
-              <pre><code class="language-javaScript">{{ componentScript }}</code></pre>            
+              <pre><code class="language-javaScript">{{ dropdownScript }}</code></pre>            
             </xen-card-content>
           </xen-card>
 
@@ -120,7 +130,7 @@
 
   export default {
 
-    name: 'copmonent-page',
+    name: 'dropdown-page',
 
     // Components
     components: {
@@ -141,12 +151,62 @@
       return {
         open1: false,
         open2: false,
-        componentTemplate: `<xen-component></xen-component>`,
-        componentScript: `import XenComponent from '../xen/Component'
+        dropdownTemplate: `<xen-dropdown :open="open1" @toggle="open1 = false">
+  <xen-icon-button style="position: relative;" slot="target" icon="more_vert" @click.native="open1 = !open1"></xen-icon-button>
+  <div slot="menu">
+    <xen-list>
+      <xen-list-item text="Preview" icon="remove_red_eye"></xen-list-item>
+      <xen-list-item text="Share" icon="person_add"></xen-list-item>
+      <xen-list-item text="Get link" icon="link"></xen-list-item>
+    </xen-list>
+    <xen-divider></xen-divider>
+    <xen-list>
+      <xen-list-item text="Make a copy" icon="content_copy"></xen-list-item>
+      <xen-list-item text="Download" icon="file_download"></xen-list-item>
+    </xen-list>
+    <xen-divider></xen-divider>
+    <xen-list>
+      <xen-list-item text="Remove" icon="delete"></xen-list-item>
+    </xen-list>
+  </div>
+</xen-dropdown>`,
+        rightDropdownTemplate: `<xen-dropdown :open="open2" @toggle="open2 = false" position="right">
+  <xen-icon-button style="position: relative;" slot="target" ref="test" icon="more_vert" @click.native="open2 = !open2"></xen-icon-button>
+  <div slot="menu">
+    <xen-list :dense="true">
+      <xen-list-item text="Preview" icon="remove_red_eye"></xen-list-item>
+      <xen-list-item text="Share" icon="person_add"></xen-list-item>
+      <xen-list-item text="Get link" icon="link"></xen-list-item>
+    </xen-list>
+    <xen-divider></xen-divider>
+    <xen-list :dense="true">
+      <xen-list-item text="Make a copy" icon="content_copy"></xen-list-item>
+      <xen-list-item text="Download" icon="file_download"></xen-list-item>
+    </xen-list>
+    <xen-divider></xen-divider>
+    <xen-list :dense="true">
+      <xen-list-item text="Remove" icon="delete"></xen-list-item>
+    </xen-list>
+  </div>
+</xen-dropdown>`,
+        dropdownScript: `import XenDropdown from '../xen/Dropdown'
+import XenIconButton from '../xen/IconButton'
+import XenList from '../xen/List'
+import XenListItem from '../xen/ListItem'
+import XenDivider from '../xen/Divider'
 
 export default {
   components: {
-    XenComponent
+    XenDropdown,
+    XenIconButton,
+    XenList,
+    XenListItem,
+    XenDivider
+  },
+
+  data: {
+    open1: false,
+    open2: false
   }
 }`
       }
