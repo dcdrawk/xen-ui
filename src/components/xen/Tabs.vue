@@ -3,7 +3,7 @@
     <!--Tab Items-->
     <div class="xen-tab-items-container" :class="theme ? 'xen-theme-' + theme : ''">
       <div ref="tabItems" class="xen-tab-items">
-        <xen-button class="xen-tab-button" v-for="(tab, key, index) in $slots" @click.native="selectTab(key, index)" :class="{'active': active === key}" v-show="key !== 'default'" ref="tabs">
+        <xen-button class="xen-tab-button" v-for="(tab, key, index) in $slots" @click.native="selectTab(key, index)" :class="{'active': active === key}" v-show="key !== 'default'" ref="tabs" :xen-tab-name="key">
           <i v-show="icons" class="xen-tab-icon material-icons">
             {{ iconValues[key] }}
           </i>
@@ -61,7 +61,7 @@ export default {
       if (this.icons) {
         this.getIcons()
       } else {
-        this.updateBar(0)
+        this.updateBar(this.active)
       }
       this.hammerTabs()
     })
@@ -79,8 +79,20 @@ export default {
     // Find the selected tab, set it as active
     findTab (index) {
       for (var i in this.$refs.tabs) {
+        console.log(this.$refs.tabs)
         var item = this.$refs.tabs[i]
         if (index === +i) {
+          return item.$el
+        }
+      }
+    },
+
+    // Find the selected tab, set it as active
+    getActiveTab (tabName) {
+      for (var i in this.$refs.tabs) {
+        var item = this.$refs.tabs[i]
+        console.log(tabName)
+        if (tabName === item.$el.attributes['xen-tab-name'].nodeValue) {
           return item.$el
         }
       }
@@ -89,9 +101,9 @@ export default {
     // Update the position and scale of the active tab bar
     updateBar (index) {
       // setTimeout(() => {
-      //   this.$nextTick(() => {
+      // this.$nextTick(() => {
       if (this.$refs.tabs) {
-        var button = this.findTab(index)
+        var button = this.getActiveTab(this.active)
         var tabBar = this.$refs['active-tab-bar']
         this.scale = button.clientWidth / 100
         console.log(button.scrollWidth)
@@ -99,7 +111,8 @@ export default {
         console.dir(button)
         this.translate = 0
         for (var i in this.$refs.tabs) {
-          if (+i !== this.index) {
+          var item = this.$refs.tabs[i]
+          if (this.active !== item.$el.attributes['xen-tab-name'].nodeValue) {
             this.translate += this.$refs.tabs[i].$el.clientWidth
           } else {
             break
@@ -107,7 +120,7 @@ export default {
         }
         tabBar.style.transform = `translateX(${this.translate + this.offset}px) scaleX(${this.scale})`
       }
-      //   })
+      // })
       // }, 0)
     },
 
@@ -194,7 +207,14 @@ export default {
         this.updateBar(this.defaultTab)
         this.active = this.defaultTab
       }
-    }
+    }// ,
+
+    // '$refs': {
+    //   handler: function (val, oldVal) {
+    //     this.updateBar(this.defaultTab)
+    //     this.active = this.defaultTab
+    //   }
+    // }
   }
 
 }

@@ -13,7 +13,7 @@
               <h2 class="title">Default Tabs</h2>
             </xen-card-header>
             <xen-card-content>
-              <xen-tabs default-tab="Messages">
+              <xen-tabs default-tab="Reminders">
                 <div slot="Messages">
                   Messages Content
                 </div>
@@ -33,7 +33,7 @@
               <h2 class="title">Themed tabs with icons</h2>
             </xen-card-header>
             <xen-card-content>
-              <xen-tabs theme="primary" default-tab="Messages" :icons="true">
+              <xen-tabs theme="primary" default-tab="Messages">
                 <div slot="Messages" icon="message">
                   Messages Content
                 </div>

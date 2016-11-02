@@ -18,6 +18,9 @@ import ButtonsPage from './components/pages/ButtonsPage'
 import ListsPage from './components/pages/ListsPage'
 import TabsPage from './components/pages/TabsPage'
 import DividersPage from './components/pages/DividersPage'
+import ChipsPage from './components/pages/ChipsPage'
+import DialogPage from './components/pages/DialogPage'
+import DropdownPage from './components/pages/DropdownPage'
 
 // use Vue Router
 Vue.use(VueRouter)
@@ -52,6 +55,18 @@ var router = new VueRouter({
     {
       path: '/components/dividers',
       component: DividersPage
+    },
+    {
+      path: '/components/chips',
+      component: ChipsPage
+    },
+    {
+      path: '/components/dialogs',
+      component: DialogPage
+    },
+    {
+      path: '/components/dropdowns',
+      component: DropdownPage
     }
   ]
 })

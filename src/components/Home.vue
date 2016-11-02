@@ -140,11 +140,8 @@
       XenCardMedia,
       XenCardActions,
       XenRipple
-    },
-
-    mounted () {
-      console.log(this)
     }
+
   }
 </script>
 

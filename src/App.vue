@@ -34,6 +34,15 @@
           <router-link to="/components/dividers">
             <xen-list-item ref="dividers" text="Dividers" :bold="true"></xen-list-item>
           </router-link>
+          <router-link to="/components/chips">
+            <xen-list-item ref="chips" text="Chips" :bold="true"></xen-list-item>
+          </router-link>
+          <router-link to="/components/dialogs">
+            <xen-list-item ref="dialogs" text="Dialogs" :bold="true"></xen-list-item>
+          </router-link>
+          <router-link to="/components/dropdowns">
+            <xen-list-item ref="dropdowns" text="Dropdowns" :bold="true"></xen-list-item>
+          </router-link>
         </xen-list>
 
       </section>
