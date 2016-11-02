@@ -6,9 +6,10 @@
 
 <script>
   export default {
-
+    // Name
     name: 'xen-list',
 
+    // Props
     props: [
       'dense'
     ]

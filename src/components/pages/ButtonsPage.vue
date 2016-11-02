@@ -231,11 +231,6 @@ export default {
     mounted () {
       // Syntax Highlighting
       Prism.highlightAll()
-
-      this.$on('toggle-sidebar', () => {
-        console.log(this)
-        console.log('togglefdwadwadsda')
-      })
     }
 
   }

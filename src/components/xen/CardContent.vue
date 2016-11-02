@@ -6,7 +6,7 @@
 
 <script>
   export default {
-
+    // Name
     name: 'xen-card-content'
 
   }
@@ -16,11 +16,13 @@
 <style lang="scss">
   .xen-card-content {
     margin: 16px;
-    /*margin: 0 16px 16px 16px;*/
+
     &.xen-no-margin {
       margin: 0;
     }
+
   }
+
   p:last-of-type {
     margin-bottom: 0;
   }

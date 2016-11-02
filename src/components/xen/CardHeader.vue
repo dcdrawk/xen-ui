@@ -6,9 +6,10 @@
 
 <script>
   export default {
-
+    // Name
     name: 'xen-card-title',
 
+    // Props
     props: [
       'background'
     ]

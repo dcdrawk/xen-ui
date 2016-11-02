@@ -6,30 +6,8 @@
 
 <script>
   export default {
-
-    name: 'my-component',
-
-    // Components
-    components: {
-
-    },
-
-    // Data
-    data () {
-      return {
-        msg: 'Hello World!'
-      }
-    },
-
-    // Methods
-    methods () {
-
-    },
-
-    // Mounted
-    mounted () {
-
-    }
+    // Name
+    name: 'xen-sidebar'
 
   }
 </script>

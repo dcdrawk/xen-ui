@@ -15,9 +15,10 @@
   import XenRipple from './Ripple'
 
   export default {
-
+    // Name
     name: 'xen-icon-button',
 
+    // Props
     props: [
       'raised',
       'primary',
@@ -27,28 +28,11 @@
       'disabled',
       'large'
     ],
+
     // Components
     components: {
       XenRipple
-    },
-
-    // Data
-    data () {
-      return {
-        msg: 'Hello World!'
-      }
-    },
-
-    // Methods
-    methods () {
-
-    },
-
-    // Mounted
-    mounted () {
-
     }
-
   }
 </script>
 
@@ -57,6 +41,7 @@
   @import '../../styles/xen/button';
 
   .xen-icon-button-container {
+
     &.disabled {
       color: $disabled-text;
       cursor: not-allowed;
@@ -64,11 +49,13 @@
       &.raised {
         background-color: rgba(0, 0, 0, .12);        
       }
+
     }
+
     &.disabled > * {
       pointer-events: none;
       transition: all 375ms $swift-in;
-      // cursor: not-allowed;
     }
+
   }
 </style>

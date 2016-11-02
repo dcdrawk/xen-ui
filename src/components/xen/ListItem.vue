@@ -23,9 +23,10 @@
   import XenRipple from '../xen/Ripple'
 
   export default {
-
+    // Name
     name: 'xen-list-item',
 
+    // Props
     props: [
       'avatar',
       'icon',

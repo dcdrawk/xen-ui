@@ -6,8 +6,10 @@
 
 <script>
   export default {
-
+    // Name
     name: 'xen-toolbar',
+
+    // Props
     props: [
       'title'
     ]

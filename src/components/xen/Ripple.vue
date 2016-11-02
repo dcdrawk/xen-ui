@@ -9,18 +9,14 @@
   import gsap from 'gsap'
 
   export default {
-
+    // Name
     name: 'xen-ripple',
 
+    // Props
     props: [
       'target',
       'round'
     ],
-
-    // Components
-    components: {
-
-    },
 
     // Data
     data () {
@@ -52,11 +48,6 @@
           this.showRipple = false
         }, 375 * (rippleScale / 100 + 1))
       }
-    },
-
-    // Mounted
-    mounted () {
-
     }
 
   }
@@ -65,24 +56,24 @@
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style lang="scss" scoped>
   @import '../../styles/variables';
+
   .xen-ripple {
     overflow: hidden;
     position: relative;
+
     &.round {
       border-radius: 50%;
     }
+
   }
+  
   .xen-ripple-dot {
     position: absolute;
     left: 0;
     width: 24px;
     height: 24px;
-    // background-color: rgba(0,0,0,.24);
     background-color: currentColor;
     opacity: .2;
-    /*transform-origin: 50%;*/
-    /*-webkit-transform-origin: 50%;*/
-    /*-moz-transform-origin: 50%;*/
     border-radius: 50%;
     transform: scale(1);
   }

@@ -139,6 +139,7 @@ export default {
       this.updateBar(0)
     },
 
+    // Gesture / Touch controls
     hammerTabs () {
       var tabHammer = new Hammer(this.$refs.tabItems)
       var tabItems = this.$refs.tabItems
@@ -205,25 +206,26 @@ export default {
   .xen-button-container.xen-tab-button {
     margin: 0;
     display: inline-table;
+
     .xen-button {
       padding: 10px 16px;
     }
+
   }
 
   .xen-tabs {
-    // font-size: 16px;
+
     .xen-tab-icon  {
       margin: auto;
       text-align: center;
       pointer-events: none;
     }
+    
   }
 
   .xen-tab-text {
     pointer-events: none;
-    // width: auto;
     display: block;
     position: relative;
-    // font-size: 0;
   }
 </style>

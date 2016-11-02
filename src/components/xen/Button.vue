@@ -12,9 +12,10 @@
   import XenRipple from './Ripple'
 
   export default {
-
+    // Name
     name: 'xen-button',
 
+    // Props
     props: [
       'primary',
       'raised',
@@ -39,9 +40,11 @@
     margin: 4px;
     overflow: hidden;
     transition: all 375ms $swift-in;
+
     &.raised {
       @extend .whiteframe-z3;
     }
+
     &.disabled {
       color: $disabled-text;
       cursor: not-allowed;
@@ -50,10 +53,12 @@
         background-color: rgba(0, 0, 0, .12);        
       }
     }
+
     &.disabled > * {
       pointer-events: none;
       transition: all 375ms $swift-in;
       // cursor: not-allowed;
     }
+
   }
 </style>

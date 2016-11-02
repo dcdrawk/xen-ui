@@ -4,7 +4,7 @@
 
 <script>
   export default {
-
+    // Name
     name: 'xen-divider'
 
   }
