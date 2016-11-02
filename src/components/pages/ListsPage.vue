@@ -2,6 +2,7 @@
   <div>
     <xen-page-toolbar class="xen-theme-green" title="Lists"></xen-page-toolbar>
     <xen-tabs theme="green" default-tab="Example">
+      <!-- Example Tab -->
       <div slot="Example">
         <section class="page-tab-content">
 
@@ -98,7 +99,7 @@
         </section>
       </div>
 
-      <!-- List Templates -->
+      <!-- Template Tab -->
       <div slot="Template">
         <div class="page-tab-content">
 
@@ -164,7 +165,7 @@
         </div>
       </div>
 
-      <!-- List Scripts -->
+      <!-- Script Tab -->
       <div slot="Script">
         <div class="page-tab-content">          
           <xen-card>
@@ -256,11 +257,6 @@ export default {
   }
 }`
       }
-    },
-
-    // Methods
-    methods: {
-
     },
 
     // Mounted

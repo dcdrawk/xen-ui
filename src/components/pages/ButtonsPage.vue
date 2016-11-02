@@ -62,8 +62,8 @@
               <xen-icon-button :raised="true" icon="person" class="xen-theme-indigo" :large="true"></xen-icon-button>
               <xen-icon-button :raised="true" icon="check" class="xen-theme-green"></xen-icon-button>
               <xen-icon-button :raised="true" icon="check" class="xen-theme-green" :large="true"></xen-icon-button>
-              <xen-icon-button :raised="true" icon="star" class="xen-theme-amber0"></xen-icon-button>
-              <xen-icon-button :raised="true" icon="star" class="xen-theme-amber0" :large="true"></xen-icon-button>
+              <xen-icon-button :raised="true" icon="star" class="xen-theme-amber"></xen-icon-button>
+              <xen-icon-button :raised="true" icon="star" class="xen-theme-amber" :large="true"></xen-icon-button>
               <xen-icon-button :raised="true" icon="close" class="xen-theme-red"></xen-icon-button>
               <xen-icon-button :raised="true" icon="close" class="xen-theme-red" :large="true"></xen-icon-button>
               <xen-icon-button :raised="true" icon="sync_disabled" :disabled="true"></xen-icon-button>

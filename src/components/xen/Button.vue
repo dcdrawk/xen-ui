@@ -24,13 +24,6 @@
     // Components
     components: {
       XenRipple
-    },
-
-    // Data
-    data () {
-      return {
-        msg: 'Hello World!'
-      }
     }
 
   }

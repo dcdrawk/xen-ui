@@ -8,7 +8,7 @@ body {
   margin-bottom: 48px;
   -webkit-tap-highlight-color: rgba(255, 255, 255, 0);
   overflow: hidden;
-  font-size: 0;
+  // font-size: 0;
 }
 
 .page-container {
@@ -17,7 +17,8 @@ body {
 
 }
 
-.page-content {
+.page-content,
+.xen-page-content {
   padding: 16px;
   overflow-y: auto;
   height: 100vh;
@@ -62,4 +63,8 @@ pre[class*=language-] {
   .xen-page-title {
     padding-left: 40px;
   }
-} 
+}
+
+[v-cloak] .v-cloak--hidden{
+  display: none;
+}

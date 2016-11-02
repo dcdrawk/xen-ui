@@ -4,6 +4,8 @@
     <xen-tabs theme="blue-grey" default-tab="Example">
       <div slot="Example">
         <section class="page-tab-content">
+
+          <!-- Default Cards -->
           <xen-card>
             <xen-card-header background="#eee">
               <h2 class="title">Default Cards</h2>
@@ -56,6 +58,8 @@
           </xen-card>
         </section>
       </div>
+
+      <!-- Card Template Tab -->
       <div slot="Template">
         <div class="page-tab-content">          
           <xen-card>
@@ -68,6 +72,8 @@
           </xen-card>
         </div>
       </div>
+
+      <!-- Card Script Tab -->
       <div slot="Script">
         <div class="page-tab-content">          
           <xen-card>
@@ -171,11 +177,6 @@ export default {
 }
 `
       }
-    },
-
-    // Methods
-    methods () {
-
     },
 
     // Mounted

@@ -7,7 +7,7 @@
           <i v-show="icons" class="xen-tab-icon material-icons">
             {{ iconValues[key] }}
           </i>
-          <span v-if="!iconsOnly" class="xen-tab-text">{{ key }}</span>
+          <div v-if="!iconsOnly" class="xen-tab-text">{{ key }}</div>
         </xen-button>
       </div>
       <div ref="active-tab-bar" class="xen-active-tab-bar" :class="{'xen-theme-accent': !theme, 'xen-theme-white': theme}"></div>
@@ -88,10 +88,15 @@ export default {
 
     // Update the position and scale of the active tab bar
     updateBar (index) {
+      // setTimeout(() => {
+      //   this.$nextTick(() => {
       if (this.$refs.tabs) {
         var button = this.findTab(index)
         var tabBar = this.$refs['active-tab-bar']
-        this.scale = button.offsetWidth / 100
+        this.scale = button.clientWidth / 100
+        console.log(button.scrollWidth)
+        console.log(this.scale)
+        console.dir(button)
         this.translate = 0
         for (var i in this.$refs.tabs) {
           if (+i !== this.index) {
@@ -102,6 +107,8 @@ export default {
         }
         tabBar.style.transform = `translateX(${this.translate + this.offset}px) scaleX(${this.scale})`
       }
+      //   })
+      // }, 0)
     },
 
     // Scroll the tab items if they overflow the container
@@ -214,5 +221,9 @@ export default {
 
   .xen-tab-text {
     pointer-events: none;
+    // width: auto;
+    display: block;
+    position: relative;
+    // font-size: 0;
   }
 </style>

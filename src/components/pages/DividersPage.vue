@@ -2,6 +2,8 @@
   <div>
     <xen-page-toolbar class="xen-theme-indigo" title="Dividers"></xen-page-toolbar>
     <xen-tabs theme="indigo" default-tab="Example">
+
+      <!-- Example Tab -->
       <div slot="Example">
         <section class="page-tab-content">
 
@@ -33,7 +35,7 @@
         </section>
       </div>
 
-      <!-- Divider Template -->
+      <!-- Template Tab-->
       <div slot="Template">
         <div class="page-tab-content">
 
@@ -59,7 +61,7 @@
         </div>
       </div>
 
-      <!-- Divider Script -->
+      <!-- Script Tab-->
       <div slot="Script">
         <div class="page-tab-content"> 
 

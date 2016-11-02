@@ -80,8 +80,12 @@
       var pathArray = path.replace(/-+/, '').replace(/#+/, '').replace(/\/+/, '').split('/')
 
       this.$nextTick(() => {
-        this.expand(pathArray[0])
-        this.setActive(pathArray[1])
+        if (pathArray.length === 1 && pathArray[0] === '') {
+          this.setActive('home')
+        } else {
+          this.expand(pathArray[0])
+          this.setActive(pathArray[1])
+        }
 
         this.$on('toggle-sidebar', () => {
           console.log('!!!!!!!!!!!')
@@ -92,7 +96,12 @@
         setTimeout(() => {
           var path = this.$route.path
           var pathArray = path.replace(/-+/, '').replace(/\/+/, '').split('/')
-          this.setActive(pathArray[1])
+          console.log(pathArray)
+          if (pathArray.length === 1 && pathArray[0] === '') {
+            this.setActive('home')
+          } else {
+            this.setActive(pathArray[1])
+          }
         }, 0)
       }
     },
@@ -106,8 +115,6 @@
         if (this.$refs[list].$el.style.height === '0px') {
           this.$refs[list].$el.style.height = this.$refs[list].$el.scrollHeight + 'px'
         } else {
-          // console.log(this.$refs)
-          // console.log(list)
           this.$refs[list].$el.style.height = 0
         }
       },
@@ -117,7 +124,7 @@
         }
       },
       setActive (listItem) {
-        // console.log(this.$refs)
+        console.log(listItem)
         for (var i in this.$refs) {
           this.$refs[i].$el.classList.remove('active')
         }
@@ -131,7 +138,7 @@
 <style lang="scss">
   @import './styles/core';
   #app {
-    font-family: 'Roboto', Helvetica, Arial, sans-serif;
+    font-family: 'Roboto';
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
   }

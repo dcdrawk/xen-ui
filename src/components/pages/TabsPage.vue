@@ -1,11 +1,13 @@
 <template>
-  <div>
+  <div v-cloak>
     <xen-page-toolbar class="xen-theme-indigo" title="Tabs"></xen-page-toolbar>
     <xen-tabs theme="indigo" default-tab="Example">
+
+      <!-- Example Tab -->
       <div slot="Example">
         <section class="page-tab-content">
 
-          <!-- Default Divider -->
+          <!-- Default Tabs -->
           <xen-card>
             <xen-card-header background="#eee">
               <h2 class="title">Default Tabs</h2>
@@ -25,7 +27,7 @@
             </xen-card-content>
           </xen-card>
 
-          <!-- Default Divider -->
+          <!-- Themed Tabs with Icons -->
           <xen-card>
             <xen-card-header background="#eee">
               <h2 class="title">Themed tabs with icons</h2>
@@ -45,7 +47,7 @@
             </xen-card-content>
           </xen-card>
 
-          <!-- Default Divider -->
+          <!-- Tabs with icons only -->
           <xen-card>
             <xen-card-header background="#eee">
               <h2 class="title">Tabs with icons only</h2>
@@ -67,27 +69,53 @@
         </section>
       </div>
 
-      <!-- Divider Script -->
-      <div slot="Script">
+      <!-- Template Tab -->
+      <div slot="Template">
         <div class="page-tab-content"> 
 
-          <!-- Default Divider Script -->         
+          <!-- Default Tabs -->         
           <xen-card>
             <xen-card-header background="#eee">
-              <h2 class="title">Default Divider</h2>
+              <h2 class="title">Default Tabs</h2>
             </xen-card-header>
             <xen-card-content class="xen-no-margin">
-              <pre><code class="language-javaScript">{{ dividerScript }}</code></pre>            
+              <pre><code class="language-html">{{ defaultTabsTemplate }}</code></pre>            
             </xen-card-content>
           </xen-card>
 
-          <!-- Divider in List Script -->         
+          <!-- Themed tabs with icons -->         
           <xen-card>
             <xen-card-header background="#eee">
-              <h2 class="title">Divider in List</h2>
+              <h2 class="title">Themed tabs with icons</h2>
             </xen-card-header>
             <xen-card-content class="xen-no-margin">
-              <pre><code class="language-javaScript">{{ dividerInListScript }}</code></pre>            
+              <pre><code class="language-html">{{ defaultTabsTemplate }}</code></pre>            
+            </xen-card-content>
+          </xen-card>
+
+          <!-- Themed tabs with icons -->         
+          <xen-card>
+            <xen-card-header background="#eee">
+              <h2 class="title">Tabs with icons only</h2>
+            </xen-card-header>
+            <xen-card-content class="xen-no-margin">
+              <pre><code class="language-html">{{ defaultTabsTemplate }}</code></pre>            
+            </xen-card-content>
+          </xen-card>
+        </div>
+      </div>
+
+      <!-- Script Tab -->
+      <div slot="Script">
+        <div class="page-tab-content"> 
+
+          <!-- Default Tabs Script -->         
+          <xen-card>
+            <xen-card-header background="#eee">
+              <h2 class="title">Default Tabs</h2>
+            </xen-card-header>
+            <xen-card-content class="xen-no-margin">
+              <pre><code class="language-javaScript">{{ defaulTabsScript }}</code></pre>            
             </xen-card-content>
           </xen-card>
         </div>
@@ -126,31 +154,44 @@
     // Data
     data () {
       return {
-        msg: 'Hello World!',
-        dividerTemplate: `<xen-divider></xen-divider>`,
-        dividerInListTemplate: `<xen-list>
-  <xen-list-item text="Two Line Item" secondary-text="Duis autem vel eum iriure dolor in hendrerit in vulputate"></xen-list-item>
-  <xen-list-item text="Two Line Item" secondary-text="Lorem ipsum dolor sit amet, consectetur adipiscing elit"></xen-list-item>
-  <xen-divider></xen-divider>
-  <xen-list-item text="Two Line Item" secondary-text="Duis autem vel eum iriure dolor in hendrerit in vulputate velit esse"></xen-list-item>
-  <xen-list-item text="Two Line Item" secondary-text="Adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore erat volutpat."></xen-list-item>
-</xen-list>`,
-        dividerScript: `import XenDivider from '../xen/Divider'
+        defaultTabsTemplate: `<xen-tabs default-tab="Messages">
+  <div slot="Messages">
+    Messages Content
+  </div>
+  <div slot="Reminders">
+    Reminders Content
+  </div>
+  <div slot="Notifications">
+    Notifications Content
+  </div>
+</xen-tabs>`,
+        themedTabsTemplate: `<xen-tabs theme="primary" default-tab="Messages" :icons="true">
+  <div slot="Messages" icon="message">
+    Messages Content
+  </div>
+  <div slot="Reminders" icon="access_time">
+    Reminders Content
+  </div>
+  <div slot="Notifications" icon="notifications">
+    Notifications Content
+  </div>
+</xen-tabs>`,
+        iconTabsTemplate: `<xen-tabs default-tab="Messages" :icons="true" :icons-only="true">
+  <div slot="Messages" icon="message">
+    Messages Content
+  </div>
+  <div slot="Reminders" icon="access_time">
+    Reminders Content
+  </div>
+  <div slot="Notifications" icon="notifications">
+    Notifications Content
+  </div>
+</xen-tabs>`,
+        defaulTabsScript: `import XenTabs from '../xen/Tabs'
 
 export default {
   components: {
-    XenDivider
-  }
-}`,
-        dividerInListScript: `import XenDivider from '../xen/Divider'
-import XenList from '../xen/List'
-import XenListItem from '../xen/ListItem'
-
-export default {
-  components: {
-    XenDivider,
-    XenList,
-    XenListItem
+    XenTabs
   }
 }`
       }
