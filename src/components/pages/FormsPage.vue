@@ -1,6 +1,6 @@
 <template>
-  <div>
-    <xen-page-toolbar class="xen-theme-indigo" title="Page Title"></xen-page-toolbar>
+  <div class="xen-page-background">
+    <xen-page-toolbar class="xen-theme-indigo" title="Forms"></xen-page-toolbar>
     <xen-tabs theme="indigo" default-tab="Example">
 
       <!-- Example Tab -->
@@ -10,10 +10,34 @@
           <!-- Default Component -->
           <xen-card>
             <xen-card-header background="#eee">
-              <h2 class="title">Default Component</h2>
+              <h2 class="title">Input Fields</h2>
             </xen-card-header>
             <xen-card-content>
-              <!-- Example Component Here -->
+              <!-- Basic Input -->
+              <xen-input value="Basic Input"></xen-input>
+
+              <!-- Input with Placeholder -->
+              <xen-input placeholder="Input with Placeholder"></xen-input>
+
+              <!-- Input with Placeholder -->
+              <xen-input label="Input with Floating Label"></xen-input>
+            </xen-card-content>
+          </xen-card>
+
+          <!-- Default Component -->
+          <xen-card>
+            <xen-card-header background="#eee">
+              <h2 class="title">Textareas</h2>
+            </xen-card-header>
+            <xen-card-content>
+              <!-- Basic Input -->
+              <xen-textarea value="Basic Input"></xen-textarea>
+
+              <!-- Input with Placeholder -->
+              <xen-textarea placeholder="Input with Placeholder" :auto-grow="false"></xen-textarea>
+
+              <!-- Input with Placeholder -->
+              <xen-textarea label="Input with Floating Label" rows="5" :auto-grow="false"></xen-textarea>
             </xen-card-content>
           </xen-card>
 
@@ -63,6 +87,8 @@
   import XenCard from '../xen/Card'
   import XenCardHeader from '../xen/CardHeader'
   import XenCardContent from '../xen/CardContent'
+  import XenInput from '../xen/Input'
+  import XenTextarea from '../xen/TextArea'
   import Prism from 'prismjs'
 
   export default {
@@ -75,7 +101,9 @@
       XenTabs,
       XenCard,
       XenCardHeader,
-      XenCardContent
+      XenCardContent,
+      XenInput,
+      XenTextarea
     },
 
     // Data

@@ -1,0 +1,75 @@
+@import '../variables';
+.xen-input-container {
+  margin: 16px 0;
+  position: relative;
+  width: 100%;
+
+  &.xen-label {
+    margin-top: 32px;
+  }
+
+  .xen-input-border {
+    width: 100%;
+    height: 1px;
+    position: absolute;
+    background-color: rgba(0, 0, 0, .12);
+    bottom: 16px;
+  }
+
+  label {
+    display: block;
+    position: absolute;
+    transform: translateY(4px);
+    transition: $transition-timing;
+    color: rgba(0, 0, 0, .54);
+    pointer-events: none;
+    font-size: 16px;
+  }
+
+  input,
+  textarea {
+    background-color: transparent;
+    outline: none;
+    box-sizing: border-box;
+    border-width: 0;
+    border-style: solid;
+    border-color: rgba(0, 0, 0, .12);
+    padding: 4px 0;
+    font-size: 16px;
+    width: 100%;
+    max-width: 100%;
+    margin-bottom: 16px;
+    font-family: 'Roboto';
+  }
+
+  &.focus, &.has-value {
+    label {
+      transform: translateY(-16px);
+      font-size: 12px;
+      margin-bottom: -2px;
+    }
+  }
+
+  &.focus {
+
+    label {
+      color: $primary-color;
+    }
+
+    .xen-input-border {
+      width: 100%;
+      height: 2px;
+      position: absolute;
+      background-color: $primary-color;
+      bottom: 14px;
+    }
+
+  }
+}
+
+::-webkit-input-placeholder,
+:-moz-placeholder,
+::-moz-placeholder,
+:-ms-input-placeholder {
+  color: rgba(0,0,0,.54);
+}
