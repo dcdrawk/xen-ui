@@ -23,11 +23,13 @@
   padding-left: 280px;
   top: 56px;
   right: 0;
-  //overflow: scroll;
   transition: opacity 375ms $material-easing;
   opacity: 1;
   display: block;
   left: 0;
+  @media only screen and (max-width: $small-breakpoint) {
+    padding-left: 0;
+  }
   .page-tabs {
     .xen-tab-items-container {
       top: 60px;

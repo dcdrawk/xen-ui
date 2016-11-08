@@ -1,13 +1,13 @@
 <template>
-  <div class="xen-input-container" v-bind:class="{ 'has-value': value, 'focus': focused }">
+  <div class="xen-input-container" v-bind:class="{ 'has-value': inputValue, 'focus': focused }">
     <label>{{label}}</label>
-    <textarea ref="textarea" v-model="value" v-focus="focused" @focus="focused = true" @blur="focused = false" :placeholder="placeholder" :rows="rows"></textarea>
+    <textarea ref="textarea" v-model="inputValue" v-focus="focused" @focus="focused = true" @blur="focused = false" :placeholder="placeholder" :rows="rows"></textarea>
     <div class="xen-input-border"></div>
   </div>
 </template>
 
 <style lang="scss">
-  @import '../../styles/xen/_input.scss';
+  @import '../../styles/xen/input';
 </style>
 <script>
   import { focus } from 'vue-focus'
@@ -27,7 +27,8 @@
 
     data () {
       return {
-        focused: false
+        focused: false,
+        inputValue: this.value || ''
       }
     },
 
@@ -39,14 +40,15 @@
       }
     },
 
-    mounted () {
-      // if (this.)
-      // this.auto_grow()
-    },
-
     watch: {
+      'inputValue': {
+        handler: function (val, oldVal) {
+          this.$emit('input', this.inputValue)
+        }
+      },
       'value': {
         handler: function (val, oldVal) {
+          this.inputValue = val
           if (typeof this.autoGrow === 'undefined' || this.autoGrow !== false) {
             this.auto_grow()
           }

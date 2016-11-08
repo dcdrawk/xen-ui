@@ -1,6 +1,6 @@
 <template>
   <div>
-    <xen-page-toolbar class="xen-theme-indigo" title="Page Title"></xen-page-toolbar>
+    <xen-page-toolbar class="xen-theme-indigo" title="Sliders"></xen-page-toolbar>
     <xen-tabs theme="indigo" default-tab="Example">
 
       <!-- Example Tab -->
@@ -13,6 +13,7 @@
               <h2 class="title">Default Component</h2>
             </xen-card-header>
             <xen-card-content>
+              <xen-slider class="xen-color-indigo"></xen-slider>
               <!-- Example Component Here -->
             </xen-card-content>
           </xen-card>
@@ -63,6 +64,7 @@
   import XenCard from '../xen/Card'
   import XenCardHeader from '../xen/CardHeader'
   import XenCardContent from '../xen/CardContent'
+  import XenSlider from '../xen/Slider'
   import Prism from 'prismjs'
 
   export default {
@@ -75,7 +77,8 @@
       XenTabs,
       XenCard,
       XenCardHeader,
-      XenCardContent
+      XenCardContent,
+      XenSlider
     },
 
     // Data

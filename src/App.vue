@@ -19,40 +19,52 @@
         </xen-list>
 
         <xen-list :dense="true" ref="components" style="height: 0px; overflow: hidden;" class="xen-sublist">
-          <router-link to="/components/cards">
-            <xen-list-item ref="cards" text="Cards" :bold="true"></xen-list-item>
-          </router-link>
           <router-link to="/components/buttons">
-            <xen-list-item ref="buttons" text="Buttons" :bold="true"></xen-list-item>
+            <xen-list-item ref="buttons" text="Buttons" :bold="true" @click.native="toggleSidebar()"></xen-list-item>
           </router-link>
-          <router-link to="/components/lists">
-            <xen-list-item ref="lists" text="Lists" :bold="true"></xen-list-item>
-          </router-link>
-          <router-link to="/components/tabs">
-            <xen-list-item ref="tabs" text="Tabs" :bold="true"></xen-list-item>
-          </router-link>
-          <router-link to="/components/dividers">
-            <xen-list-item ref="dividers" text="Dividers" :bold="true"></xen-list-item>
+          <router-link to="/components/cards">
+            <xen-list-item ref="cards" text="Cards" :bold="true" @click.native="toggleSidebar()"></xen-list-item>
           </router-link>
           <router-link to="/components/chips">
-            <xen-list-item ref="chips" text="Chips" :bold="true"></xen-list-item>
+            <xen-list-item ref="chips" text="Chips" :bold="true" @click.native="toggleSidebar()"></xen-list-item>
           </router-link>
           <router-link to="/components/dialogs">
-            <xen-list-item ref="dialogs" text="Dialogs" :bold="true"></xen-list-item>
+            <xen-list-item ref="dialogs" text="Dialogs" :bold="true" @click.native="toggleSidebar()"></xen-list-item>
+          </router-link>
+          <router-link to="/components/dividers">
+            <xen-list-item ref="dividers" text="Dividers" :bold="true" @click.native="toggleSidebar()"></xen-list-item>
           </router-link>
           <router-link to="/components/dropdowns">
-            <xen-list-item ref="dropdowns" text="Dropdowns" :bold="true"></xen-list-item>
+            <xen-list-item ref="dropdowns" text="Dropdowns" :bold="true" @click.native="toggleSidebar()"></xen-list-item>
           </router-link>
           <router-link to="/components/expansion-panels">
-            <xen-list-item ref="expansionpanels" text="Expansion Panels" :bold="true"></xen-list-item>
+            <xen-list-item ref="expansionpanels" text="Expansion Panels" :bold="true" @click.native="toggleSidebar()"></xen-list-item>
           </router-link>
           <router-link to="/components/forms">
-            <xen-list-item ref="forms" text="Forms" :bold="true"></xen-list-item>
+            <xen-list-item ref="forms" text="Forms" :bold="true" @click.native="toggleSidebar()"></xen-list-item>
+          </router-link>
+          <router-link to="/components/lists">
+            <xen-list-item ref="lists" text="Lists" :bold="true" @click.native="toggleSidebar()"></xen-list-item>
           </router-link>
           <router-link to="/components/sliders">
-            <xen-list-item ref="sliders" text="Sliders" :bold="true"></xen-list-item>
+            <xen-list-item ref="sliders" text="Sliders" :bold="true" @click.native="toggleSidebar()"></xen-list-item>
+          </router-link>
+          <router-link to="/components/tabs">
+            <xen-list-item ref="tabs" text="Tabs" :bold="true" @click.native="toggleSidebar()"></xen-list-item>
           </router-link>
         </xen-list>
+
+        <xen-list :dense="true">
+          <xen-list-item text="Examples" :bold="true" @click.native="expand('examples')"></xen-list-item>
+        </xen-list>
+
+        <xen-list :dense="true" ref="examples" style="height: 0px; overflow: hidden;" class="xen-sublist">
+          <router-link to="/examples/chat">
+            <xen-list-item ref="chat" text="Chat" :bold="true" @click.native="toggleSidebar()"></xen-list-item>
+          </router-link>
+        </xen-list>
+
+
 
       </section>
     </xen-sidebar>
@@ -126,7 +138,7 @@
 
     methods: {
       toggleSidebar () {
-        this.sidebarOpen = !this.sidebarOpen
+        if (window.innerWidth < 768) this.sidebarOpen = !this.sidebarOpen
       },
       expand (list) {
         console.log(list)

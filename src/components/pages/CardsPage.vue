@@ -12,7 +12,7 @@
             </xen-card-header>
             <xen-card-content>
               <div class="row" ref="default">
-                <div class="col-xs-4">
+                <div class="col-xs-12 col-md-4">
                   <xen-card>
                     <xen-card-header>
                       <h2 class="title">Title</h2>
@@ -24,7 +24,7 @@
                   </xen-card>
                 </div>
 
-                <div class="col-xs-4">
+                <div class="col-xs-12 col-md-4">
                   <xen-card>
                     <xen-card-header>
                       <h2 class="title">Title</h2>
@@ -39,7 +39,7 @@
                   </xen-card>
                 </div>
 
-                <div class="col-xs-4">
+                <div class="col-xs-12 col-md-4">
                   <xen-card>
                     <xen-card-media>
                       <img src="./../../assets/clouds.jpg">

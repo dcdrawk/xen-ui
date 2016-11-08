@@ -10,7 +10,7 @@
           <!-- Default Component -->
           <xen-card>
             <xen-card-header background="#eee">
-              <h2 class="title">Input Fields</h2>
+              <h2 class="title">Input Field</h2>
             </xen-card-header>
             <xen-card-content>
               <!-- Basic Input -->
@@ -20,14 +20,15 @@
               <xen-input placeholder="Input with Placeholder"></xen-input>
 
               <!-- Input with Placeholder -->
-              <xen-input label="Input with Floating Label"></xen-input>
+              <xen-input label="Input with Floating Label and Binding" :value="inputValue" @input="inputValue = $event"></xen-input>
+              <p>{{ inputValue }}</p>
             </xen-card-content>
           </xen-card>
 
-          <!-- Default Component -->
+          <!-- Textarea -->
           <xen-card>
             <xen-card-header background="#eee">
-              <h2 class="title">Textareas</h2>
+              <h2 class="title">Textarea</h2>
             </xen-card-header>
             <xen-card-content>
               <!-- Basic Input -->
@@ -38,6 +39,61 @@
 
               <!-- Input with Placeholder -->
               <xen-textarea label="Input with Floating Label" rows="5" :auto-grow="false"></xen-textarea>
+            </xen-card-content>
+          </xen-card>
+
+          <!-- Select -->
+          <xen-card>
+            <xen-card-header background="#eee">
+              <h2 class="title">Select</h2>
+            </xen-card-header>
+            <xen-card-content>
+              <xen-select :options="selectOptions" placeholder="Ice Cream"></xen-select>
+            </xen-card-content>
+          </xen-card>
+
+          <!-- Radio Buttons -->
+          <xen-card>
+            <xen-card-header background="#eee">
+              <h2 class="title">Radio Buttons</h2>
+            </xen-card-header>
+            <xen-card-content>
+              <xen-radio-group :value="radioValue" @input="radioValue = $event">
+                <xen-radio-button value="Rick" class="xen-color-indigo"></xen-radio-button>
+                <xen-radio-button value="Morty" class="xen-color-orange"></xen-radio-button>
+                <xen-radio-button value="Mr. Poopybutthole" class="xen-color-purple"></xen-radio-button>
+              </xen-radio-group>
+              <p>Value: {{ radioValue }}</p>
+
+              <xen-radio-group :value="radioValue" @input="radioValue = $event">
+                <ul>
+                  <li>
+                    <xen-radio-button value="Rick" class="xen-color-indigo"></xen-radio-button>
+                    <span class="body-1 xen-vertical-align-middle">Rick</span></li>
+                  <li>
+                    <xen-radio-button value="Morty" class="xen-color-orange" text="Test"></xen-radio-button>
+                    <span class="body-1 xen-vertical-align-middle">Morty</span>
+                  </li>
+                  <li>
+                    <xen-radio-button value="Mr. Poopybutthole" class="xen-color-purple"></xen-radio-button>
+                    <span class="body-1 xen-vertical-align-middle">Mr. Poopybutthole</span>
+                  </li>
+                </ul>
+              </xen-radio-group>
+            </xen-card-content>
+          </xen-card>
+
+          <!-- Checkboxes -->
+          <xen-card>
+            <xen-card-header background="#eee">
+              <h2 class="title">Checkboxes</h2>
+            </xen-card-header>
+            <xen-card-content>
+              <xen-radio-group>
+                <xen-checkbox :value="true" class="xen-color-indigo"></xen-checkbox>
+                <xen-checkbox :value="false" class="xen-color-orange"></xen-checkbox>
+                <xen-checkbox :value="false" class="xen-color-purple"></xen-checkbox>
+              </xen-radio-group>
             </xen-card-content>
           </xen-card>
 
@@ -88,12 +144,16 @@
   import XenCardHeader from '../xen/CardHeader'
   import XenCardContent from '../xen/CardContent'
   import XenInput from '../xen/Input'
-  import XenTextarea from '../xen/TextArea'
+  import XenTextarea from '../xen/Textarea'
+  import XenSelect from '../xen/Select'
+  import XenRadioGroup from '../xen/RadioGroup'
+  import XenRadioButton from '../xen/RadioButton'
+  import XenCheckbox from '../xen/Checkbox'
   import Prism from 'prismjs'
 
   export default {
 
-    name: 'copmonent-page',
+    name: 'forms-page',
 
     // Components
     components: {
@@ -103,13 +163,19 @@
       XenCardHeader,
       XenCardContent,
       XenInput,
-      XenTextarea
+      XenTextarea,
+      XenSelect,
+      XenRadioGroup,
+      XenRadioButton,
+      XenCheckbox
     },
 
     // Data
     data () {
       return {
-        msg: 'Hello World!',
+        inputValue: '',
+        radioValue: 'Rick',
+        selectOptions: ['Vanilla', 'Chocolate', 'Strawberry', 'Neopolitan'],
         componentTemplate: `<xen-component></xen-component>`,
         componentScript: `import XenComponent from '../xen/Component'
 

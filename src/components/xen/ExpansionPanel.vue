@@ -1,5 +1,4 @@
 <template>
-
   <div ref="panel" class="xen-expansion-panel" @click="togglePanel();" :class="{ 'closed': !panelOpen, 'open': panelOpen}">
     <!--<slot></slot>-->
     <div ref="container" class="row">

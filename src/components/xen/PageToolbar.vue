@@ -38,7 +38,7 @@
     width: 100%;
     padding: 16px;
     top: 0;
-    z-index: 10;
+    z-index: 8;
   }
 
   i {

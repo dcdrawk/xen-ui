@@ -9,6 +9,9 @@ import App from './App'
 // Docs: http://router.vuejs.org/en/index.html
 import VueRouter from 'vue-router'
 
+// Socket io implementation for VueJS
+import VueSocketio from 'vue-socket.io'
+
 // Import the components for each page
 import Home from './components/Home'
 
@@ -23,9 +26,14 @@ import DialogPage from './components/pages/DialogPage'
 import DropdownPage from './components/pages/DropdownPage'
 import ExpansionPanelPage from './components/pages/ExpansionPanelPage'
 import FormsPage from './components/pages/FormsPage'
+import SlidersPage from './components/pages/SlidersPage'
+import ChatPage from './components/pages/ChatPage'
 
 // use Vue Router
 Vue.use(VueRouter)
+
+// use Vue Socket.io
+Vue.use(VueSocketio, '10.5.0.74:3000')
 
 // Map the Routes and Components
 var router = new VueRouter({
@@ -77,6 +85,14 @@ var router = new VueRouter({
     {
       path: '/components/forms',
       component: FormsPage
+    },
+    {
+      path: '/components/sliders',
+      component: SlidersPage
+    },
+    {
+      path: '/examples/chat',
+      component: ChatPage
     }
 
   ]

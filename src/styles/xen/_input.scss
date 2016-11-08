@@ -1,6 +1,7 @@
 @import '../variables';
+
 .xen-input-container {
-  margin: 16px 0;
+  margin: 16px 0 0 0;
   position: relative;
   width: 100%;
 
@@ -24,6 +25,11 @@
     color: rgba(0, 0, 0, .54);
     pointer-events: none;
     font-size: 16px;
+    transform-origin: 0%;
+  }
+
+  textarea {
+    margin-bottom: 0;
   }
 
   input,
@@ -44,9 +50,7 @@
 
   &.focus, &.has-value {
     label {
-      transform: translateY(-16px);
-      font-size: 12px;
-      margin-bottom: -2px;
+      transform: translateY(-16px) translateX(0) scale(.75);
     }
   }
 
@@ -65,6 +69,11 @@
     }
 
   }
+
+}
+
+.xen-placeholder {
+  color: rgba(0,0,0,.54);
 }
 
 ::-webkit-input-placeholder,
