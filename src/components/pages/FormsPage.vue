@@ -1,7 +1,7 @@
 <template>
   <div class="xen-page-background">
     <xen-page-toolbar class="xen-theme-indigo" title="Forms"></xen-page-toolbar>
-    <xen-tabs theme="indigo" default-tab="Example">
+    <xen-tabs class="xen-page-tabs" theme="indigo" default-tab="Example">
 
       <!-- Example Tab -->
       <div slot="Example">
@@ -89,11 +89,9 @@
               <h2 class="title">Checkboxes</h2>
             </xen-card-header>
             <xen-card-content>
-              <xen-radio-group>
-                <xen-checkbox :value="true" class="xen-color-indigo"></xen-checkbox>
-                <xen-checkbox :value="false" class="xen-color-orange"></xen-checkbox>
-                <xen-checkbox :value="false" class="xen-color-purple"></xen-checkbox>
-              </xen-radio-group>
+              <xen-checkbox :value="true" class="xen-color-indigo"></xen-checkbox>
+              <xen-checkbox :value="false" class="xen-color-orange"></xen-checkbox>
+              <xen-checkbox :value="false" class="xen-color-purple"></xen-checkbox>
             </xen-card-content>
           </xen-card>
 

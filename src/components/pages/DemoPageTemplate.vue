@@ -1,7 +1,7 @@
 <template>
   <div>
     <xen-page-toolbar class="xen-theme-indigo" title="Page Title"></xen-page-toolbar>
-    <xen-tabs theme="indigo" default-tab="Example">
+    <xen-tabs class="xen-page-tabs" theme="indigo" default-tab="Example">
 
       <!-- Example Tab -->
       <div slot="Example">

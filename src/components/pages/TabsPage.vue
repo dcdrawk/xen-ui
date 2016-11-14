@@ -1,7 +1,7 @@
 <template>
   <div v-cloak>
     <xen-page-toolbar class="xen-theme-indigo" title="Tabs"></xen-page-toolbar>
-    <xen-tabs theme="indigo" default-tab="Example">
+    <xen-tabs class="xen-page-tabs" theme="indigo" default-tab="Example">
 
       <!-- Example Tab -->
       <div slot="Example">
@@ -15,13 +15,13 @@
             <xen-card-content>
               <xen-tabs default-tab="Reminders">
                 <div slot="Messages">
-                  Messages Content
+                  <p>Messages Content</p>
                 </div>
                 <div slot="Reminders">
-                  Reminders Content
+                  <p>Reminders Content</p>
                 </div>
                 <div slot="Notifications">
-                  Notifications Content
+                  <p>Notifications Content</p>
                 </div>
               </xen-tabs>
             </xen-card-content>
@@ -35,13 +35,13 @@
             <xen-card-content>
               <xen-tabs theme="primary" default-tab="Messages">
                 <div slot="Messages" icon="message">
-                  Messages Content
+                  <p>Messages Content</p>
                 </div>
                 <div slot="Reminders" icon="access_time">
-                  Reminders Content
+                  <p>Reminders Content</p>
                 </div>
                 <div slot="Notifications" icon="notifications">
-                  Notifications Content
+                  <p>Notifications Content</p>
                 </div>
               </xen-tabs>
             </xen-card-content>
@@ -55,13 +55,13 @@
             <xen-card-content>
               <xen-tabs default-tab="Messages" :icons="true" :icons-only="true">
                 <div slot="Messages" icon="message">
-                  Messages Content
+                  <p>Messages Content</p>
                 </div>
                 <div slot="Reminders" icon="access_time">
-                  Reminders Content
+                  <p>Reminders Content</p>
                 </div>
                 <div slot="Notifications" icon="notifications">
-                  Notifications Content
+                  <p>Notifications Content</p>
                 </div>
               </xen-tabs>
             </xen-card-content>

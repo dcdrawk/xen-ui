@@ -17,25 +17,27 @@
     },
 
     mounted () {
-      this.$nextTick(() => {
+      setTimeout(() => {
         this.$on('radioSelect', (value) => {
           this.$emit('input', value)
         })
         this.radioButtons = this.$el.querySelectorAll('.xen-radio-button-container')
         this.getSelected()
-      })
+      }, 0)
     },
 
     methods: {
       getSelected () {
-        this.radioButtons.forEach((item, index) => {
-          console.log(this.value, item)
-          if (this.value === item.__vue__.value) {
-            item.__vue__.selected = true
-          } else {
-            item.__vue__.selected = false
+        for (var i in this.radioButtons) {
+          let item = this.radioButtons[i]
+          if (item.hasOwnProperty('__vue__')) {
+            if (this.value === item.__vue__.value) {
+              item.__vue__.selected = true
+            } else {
+              item.__vue__.selected = false
+            }
           }
-        })
+        }
       }
     },
 

@@ -14,6 +14,7 @@ import VueSocketio from 'vue-socket.io'
 
 // Import the components for each page
 import Home from './components/Home'
+import GettingStartedPage from './components/pages/GettingStartedPage'
 
 // Component Pages
 import CardsPage from './components/pages/CardsPage'
@@ -22,13 +23,18 @@ import ListsPage from './components/pages/ListsPage'
 import TabsPage from './components/pages/TabsPage'
 import DividersPage from './components/pages/DividersPage'
 import ChipsPage from './components/pages/ChipsPage'
+import DataTablesPage from './components/pages/DataTablesPage'
 import DialogPage from './components/pages/DialogPage'
 import DropdownPage from './components/pages/DropdownPage'
 import ExpansionPanelPage from './components/pages/ExpansionPanelPage'
 import FormsPage from './components/pages/FormsPage'
 import SlidersPage from './components/pages/SlidersPage'
+import ToastsPage from './components/pages/ToastsPage'
+
+// Example Pages
 import ChatPage from './components/pages/ChatPage'
 
+console.log(GettingStartedPage)
 // use Vue Router
 Vue.use(VueRouter)
 
@@ -41,6 +47,10 @@ var router = new VueRouter({
     {
       path: '/',
       component: Home
+    },
+    {
+      path: '/getting',
+      component: GettingStartedPage
     },
     // Components
     {
@@ -71,6 +81,10 @@ var router = new VueRouter({
       component: ChipsPage
     },
     {
+      path: '/components/datatables',
+      component: DataTablesPage
+    },
+    {
       path: '/components/dialogs',
       component: DialogPage
     },
@@ -93,6 +107,10 @@ var router = new VueRouter({
     {
       path: '/examples/chat',
       component: ChatPage
+    },
+    {
+      path: '/components/toasts',
+      component: ToastsPage
     }
 
   ]

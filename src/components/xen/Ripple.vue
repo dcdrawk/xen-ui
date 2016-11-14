@@ -39,12 +39,14 @@
             this.$refs.dot.style.left = this.$parent.$el.clientWidth / 2 - 12 + 'px'
             this.$refs.dot.style.top = this.$parent.$el.clientHeight / 2 - 12 + 'px'
           } else {
-            this.$refs.dot.style.left = ev.offsetX - 12 + 'px'
-            this.$refs.dot.style.top = ev.offsetY - 12 + 'px'
+            let offsetX = ev.offsetX !== 0 ? ev.offsetX : ev.layerX
+            let offsetY = ev.offsetY !== 0 ? ev.offsetY : ev.layerY
+            this.$refs.dot.style.left = offsetX - 12 + 'px'
+            this.$refs.dot.style.top = offsetY - 12 + 'px'
           }
           this.$nextTick(() => {
-            gsap.TweenLite.to(this.$refs.dot, 0, { scaleX: 1, scaleY: 1, opacity: 0.2 })
-            gsap.TweenLite.to(this.$refs.dot, 0.375 * (rippleScale / 100 + 1), { scaleX: rippleScale, scaleY: rippleScale, opacity: 0, ease: gsap.Power1.easeOut, onComplete: this.rippleComplete(rippleScale) })
+            gsap.TweenLite.to(this.$refs.dot, 0, { scaleX: 1, scaleY: 1, opacity: 0.35 })
+            gsap.TweenLite.to(this.$refs.dot, 0.425 * (rippleScale / 100 + 1), { scaleX: rippleScale, scaleY: rippleScale, opacity: 0, ease: gsap.Power1.easeOut, onComplete: this.rippleComplete(rippleScale) })
           })
         })
       },

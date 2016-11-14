@@ -1,13 +1,11 @@
 <template>
   <!-- <div class="xen-button-container" > -->
   <span class="xen-icon-button-container" :class="{ 'raised': raised, 'flat': !raised, 'disabled': disabled, 'large': large }">
-    <span class="xen-icon-button-shadow">
-      <xen-ripple :round="true">
-        <span ref="button" class="xen-icon-button-wrapper" v-bind:class="{ 'primary': primary, 'secondary': secondary, 'raised': raised, 'flat': !raised, 'square': square }">
-          <i class="material-icons">{{ icon }}</i>
-        </span>
-      </xen-ripple>
-    </span>    
+    <xen-ripple :round="true">
+      <span ref="button" class="xen-icon-button-wrapper" v-bind:class="{ 'primary': primary, 'secondary': secondary, 'raised': raised, 'flat': !raised, 'square': square }">
+        <i class="material-icons">{{ icon }}</i>
+      </span>
+    </xen-ripple>
   </span>
 </template>
 

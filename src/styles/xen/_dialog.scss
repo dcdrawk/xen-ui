@@ -6,12 +6,20 @@
   display: flex;
   position: fixed;
   top: 0;
-  right: 0;
+  left: 0;
   align-items: center;
   height: 100vh;
   width: 100vw;
-  z-index: 11;
+  z-index: 10;
   pointer-events: none;
+
+  margin: auto;
+  min-width: 280px;
+  // background-color: #fff;
+  // max-width: 80%;
+  z-index: 10;
+  // max-height: 80%;
+  overflow: hidden;
 
   &.show {
     pointer-events: auto;
@@ -19,12 +27,13 @@
 
   .xen-dialog {
     margin: auto;
-    min-width: 280px;
+    // min-width: 280px;
     background-color: #fff;
     max-width: 80%;
     z-index: 10;
     max-height: 80%;
-    overflow: hidden;
+    position: relative;
+    // overflow: hidden;
 
     @extend .whiteframe-z5;
 
@@ -33,9 +42,9 @@
     }
 
     .xen-dialog-content {
-      margin: 20px 0 24px 0;
-      padding: 0 24px;
-      max-height: calc(80vh - 68px);
+      margin: 20px 0 0 0;
+      padding: 0 24px 24px 24px;
+      max-height: calc(80vh - 56px);
       overflow-x: hidden;
       overflow-y: auto;
     }
@@ -105,6 +114,7 @@
     position: fixed;
     height: 100vh;
     width: 100vw;
+    top: 0;
     background-color: rgba(0,0,0,.56);
 
     &.fade-enter-active,

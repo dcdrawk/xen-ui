@@ -88,6 +88,9 @@
   width: 40px;
   margin: 4px;
   transition: all 375ms $swift-in;
+  position: relative;
+  z-index: 1;
+  overflow: hidden;
   &.raised {
     @extend .whiteframe-z2;
   }
@@ -98,24 +101,13 @@
     width: 56px;
   }
 }
-.xen-icon-button-shadow {
-  display: inline-block;
-  border-radius: 50%;
-  height: 40px;
-  width: 40px;
-  -webkit-mask-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAIAAACQd1PeAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAAA5JREFUeNpiYGBgAAgwAAAEAAGbA+oJAAAAAElFTkSuQmCC);
-}
 
 .xen-icon-button-wrapper {
-  border-radius: 50%;
   height: 40px;
   width: 40px;
   display: flex;
   margin-right: 8px;
-  position: relative;
   cursor: pointer;
-  //margin: 4px;
-  -webkit-mask-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAIAAACQd1PeAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAAA5JREFUeNpiYGBgAAgwAAAEAAGbA+oJAAAAAElFTkSuQmCC);
   i {
     margin: auto;
     user-select: none;

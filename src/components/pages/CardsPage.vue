@@ -1,7 +1,7 @@
 <template>
   <div>
     <xen-page-toolbar class="xen-theme-blue-grey"title="Cards"></xen-page-toolbar>
-    <xen-tabs theme="blue-grey" default-tab="Example">
+    <xen-tabs class="xen-page-tabs" theme="blue-grey" default-tab="Example">
       <div slot="Example">
         <section class="page-tab-content">
 

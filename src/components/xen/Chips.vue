@@ -21,6 +21,9 @@
     opacity: .54;
     width: 18px;
     height: 18px;
+    align-items: center;
+    display: flex;
+    justify-content: center;
   }
 
 

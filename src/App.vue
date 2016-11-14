@@ -11,6 +11,9 @@
           <router-link to="/">
             <xen-list-item text="Home" :bold="true"></xen-list-item>
           </router-link>
+          <router-link to="/getting">
+            <xen-list-item text="Getting Started" :bold="true"></xen-list-item>
+          </router-link>
         </xen-list>
         <xen-divider></xen-divider>
 
@@ -28,6 +31,9 @@
           <router-link to="/components/chips">
             <xen-list-item ref="chips" text="Chips" :bold="true" @click.native="toggleSidebar()"></xen-list-item>
           </router-link>
+          <router-link to="/components/datatables">
+            <xen-list-item ref="datatables" text="Data tables" :bold="true" @click.native="toggleSidebar()"></xen-list-item>
+          </router-link>
           <router-link to="/components/dialogs">
             <xen-list-item ref="dialogs" text="Dialogs" :bold="true" @click.native="toggleSidebar()"></xen-list-item>
           </router-link>
@@ -38,7 +44,7 @@
             <xen-list-item ref="dropdowns" text="Dropdowns" :bold="true" @click.native="toggleSidebar()"></xen-list-item>
           </router-link>
           <router-link to="/components/expansion-panels">
-            <xen-list-item ref="expansionpanels" text="Expansion Panels" :bold="true" @click.native="toggleSidebar()"></xen-list-item>
+            <xen-list-item ref="expansionpanels" text="Expansion panels" :bold="true" @click.native="toggleSidebar()"></xen-list-item>
           </router-link>
           <router-link to="/components/forms">
             <xen-list-item ref="forms" text="Forms" :bold="true" @click.native="toggleSidebar()"></xen-list-item>
@@ -51,6 +57,9 @@
           </router-link>
           <router-link to="/components/tabs">
             <xen-list-item ref="tabs" text="Tabs" :bold="true" @click.native="toggleSidebar()"></xen-list-item>
+          </router-link>
+          <router-link to="/components/toasts">
+            <xen-list-item ref="toasts" text="Toasts" :bold="true" @click.native="toggleSidebar()"></xen-list-item>
           </router-link>
         </xen-list>
 
@@ -72,11 +81,11 @@
       <div class="xen-sidebar-backdrop" v-if="sidebarOpen" @click="toggleSidebar()"></div>
     </transition>    
     <div class="page-container">
-      <transition name="router-fade">
+      <!-- <transition name="router-fade"> -->
         <keep-alive>
           <router-view></router-view>
         </keep-alive> 
-      </transition>
+      <!-- </transition> -->
     </div>
   </div>
 </template>
@@ -116,17 +125,12 @@
           this.expand(pathArray[0])
           this.setActive(pathArray[1])
         }
-
-        this.$on('toggle-sidebar', () => {
-          console.log('!!!!!!!!!!!')
-        })
       })
 
       window.onpopstate = (event) => {
         setTimeout(() => {
           var path = this.$route.path
           var pathArray = path.replace(/-+/, '').replace(/\/+/, '').split('/')
-          console.log(pathArray)
           if (pathArray.length === 1 && pathArray[0] === '') {
             this.setActive('home')
           } else {
@@ -141,7 +145,6 @@
         if (window.innerWidth < 768) this.sidebarOpen = !this.sidebarOpen
       },
       expand (list) {
-        console.log(list)
         if (this.$refs[list].$el.style.height === '0px') {
           this.$refs[list].$el.style.height = this.$refs[list].$el.scrollHeight + 'px'
         } else {
@@ -154,7 +157,6 @@
         }
       },
       setActive (listItem) {
-        console.log(listItem)
         for (var i in this.$refs) {
           this.$refs[i].$el.classList.remove('active')
         }

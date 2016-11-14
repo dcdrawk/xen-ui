@@ -1,5 +1,5 @@
 <template>
-  <div class="xen-select-container" v-bind:class="{ 'has-value': selectValue}">
+  <div class="xen-select-container" v-bind:class="{ 'has-value': selectValue, 'xen-dense': dense }">
     <div class="xen-select" @click="openSelect()">
       <label v-if="label">{{label}}</label>
       <span v-if="selectValue">{{selectValue}}</span>
@@ -28,7 +28,8 @@
       'label',
       'value',
       'options',
-      'placeholder'
+      'placeholder',
+      'dense'
     ],
 
     methods: {
@@ -36,12 +37,17 @@
         this.open = true
 
         setTimeout(() => {
-          var container = this.$refs.container
-          var offset = this.selectedIndex ? this.selectedIndex * 48 : 0
-          var scrollOffset = this.selectedIndex > 4 ? (this.options.length - 5) * 48 : 0
+          let optionHeight = this.dense ? 40 : 48
+          let adjustment = this.dense ? -2 : 1
+          let container = this.$refs.container
 
-          container.scrollTop = this.selectedIndex > 4 ? 48 * (this.options.length - this.selectedIndex + 1) : 0
-          container.style.transform = `translateY(-${offset - scrollOffset}px)`
+          let offset = ((this.selectedIndex + 1) * optionHeight * -1) + adjustment
+          let scrollOffset = this.selectedIndex > 4 ? (this.options.length - 5) * optionHeight : 0
+
+          container.scrollTop = this.selectedIndex > 4 ? optionHeight * (this.options.length - this.selectedIndex + 1) : 0
+
+          console.log(this.selectedIndex + 1, optionHeight, adjustment, ((this.selectedIndex + 1) * optionHeight))
+          container.style.transform = `translateY(${offset - scrollOffset}px)`
         }
         , 0)
       },
@@ -78,6 +84,20 @@
 
     mounted () {
       this.getSelectedIndex()
+    },
+
+    watch: {
+      'selectValue': {
+        handler: function (val, oldVal) {
+          this.$emit('input', this.selectValue)
+        }
+      },
+      'value': {
+        handler: function (val, oldVal) {
+          this.selectValue = val
+          this.$emit('input', this.selectValue)
+        }
+      }
     }
   }
 </script>

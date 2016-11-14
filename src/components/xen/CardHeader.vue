@@ -1,5 +1,5 @@
 <template>
-  <div class="xen-card-title" :class="{ 'xen-custom-background': background }" :style="background ? 'background-color:' + background + ';' : ''">
+  <div class="xen-card-title" :class="{ 'xen-custom-background': background }" :style="background ? 'background-color:' + background + '; border-bottom: 1px solid rgba(0,0,0,.12);' : ''">
     <slot></slot>
   </div>
 </template>

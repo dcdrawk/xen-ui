@@ -1,7 +1,7 @@
 <template>
-  <div class="checkbox-container" @click="toggleCheckbox()" v-bind:class="{ 'has-value': checkboxValue }">
+  <div class="xen-checkbox-container" @click="toggleCheckbox()" v-bind:class="{ 'has-value': checkboxValue }">
     <xen-ripple :center="true">
-      <div class="checkbox"></div>
+      <div class="xen-checkbox"></div>
       <i class="material-icons">check</i>
     </xen-ripple>
   </div>
@@ -26,6 +26,7 @@
         checkboxValue: this.value || false
       }
     },
+
     methods: {
       toggleCheckbox (value) {
         if (value === true || value === false) {
@@ -33,9 +34,22 @@
         } else {
           this.checkboxValue = !this.checkboxValue
         }
-        this.$emit('input', this.checkboxValue)
+        // this.$emit('input', this.checkboxValue)
+      }
+    },
+
+    watch: {
+      'checkboxValue': {
+        handler: function (val, oldVal) {
+          this.$emit('input', this.checkboxValue)
+        }
+      },
+      'value': {
+        handler: function (val, oldVal) {
+          this.checkboxValue = val
+          this.$emit('input', this.checkboxValue)
+        }
       }
     }
-
   }
 </script>

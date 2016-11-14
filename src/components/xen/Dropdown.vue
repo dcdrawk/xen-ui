@@ -27,13 +27,13 @@
     methods: {
       openDropdown () {
         var container = this.$refs.container
-        gsap.TweenLite.to(container, 0.25, { height: this.totalHeight + 'px', opacity: 1, ease: gsap.Power1.easeOut })
+        gsap.TweenLite.to(container, 0.375, { height: this.totalHeight + 'px', opacity: 1, ease: gsap.Power1.easeOut })
         console.log(this.target)
       },
 
       closeDropdown () {
         var container = this.$refs.container
-        gsap.TweenLite.to(container, 0.25, { height: '0px', opacity: 0, ease: gsap.Power1.easeOut })
+        gsap.TweenLite.to(container, 0.375, { height: '0px', opacity: 0, ease: gsap.Power1.easeOut })
         this.$emit('toggle')
       }
     },
@@ -53,10 +53,8 @@
         this.target = this.$slots.target[0].elm
         if (this.position === 'right') {
           container.style.left = this.target.offsetLeft + this.target.clientWidth - container.clientWidth + 'px'
-          // container.style.top = this.target.offsetTop + 'px'
         } else {
           container.style.left = this.target.offsetLeft + 'px'
-          // container.style.top = this.target.offsetTop + 'px'
         }
       }, 0)
     },
@@ -64,7 +62,6 @@
     watch: {
       'open': {
         handler: function (val, oldVal) {
-          console.log(val)
           if (val === true) {
             this.openDropdown()
           } else {

@@ -79,7 +79,6 @@ export default {
     // Find the selected tab, set it as active
     findTab (index) {
       for (var i in this.$refs.tabs) {
-        console.log(this.$refs.tabs)
         var item = this.$refs.tabs[i]
         if (index === +i) {
           return item.$el
@@ -91,7 +90,6 @@ export default {
     getActiveTab (tabName) {
       for (var i in this.$refs.tabs) {
         var item = this.$refs.tabs[i]
-        console.log(tabName)
         if (tabName === item.$el.attributes['xen-tab-name'].nodeValue) {
           return item.$el
         }
@@ -106,9 +104,6 @@ export default {
         var button = this.getActiveTab(this.active)
         var tabBar = this.$refs['active-tab-bar']
         this.scale = button.clientWidth / 100
-        console.log(button.scrollWidth)
-        console.log(this.scale)
-        console.dir(button)
         this.translate = 0
         for (var i in this.$refs.tabs) {
           var item = this.$refs.tabs[i]
