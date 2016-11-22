@@ -7,53 +7,54 @@
       <div slot="Example">
         <section class="page-tab-content">
 
-          <!-- Default Component -->
+          <!-- Default Table -->
           <xen-card>
             <xen-card-header background="#eee">
               <h2 class="title">Default Table</h2>
             </xen-card-header>
             <xen-card-content>
-              <xen-data-table :rows="rows1" :columns="columns" order="name" :direction="-1" :striped="true"></xen-data-table>
+              <xen-data-table :rows="rows1" :columns="columns" order="name" :direction="-1"></xen-data-table>
             </xen-card-content>
           </xen-card>
 
-          <!-- Default Component -->
+          <!-- Bordered Table -->
           <xen-card>
             <xen-card-header background="#eee">
               <h2 class="title">Bordered Table</h2>
             </xen-card-header>
             <xen-card-content>
+              <xen-input class="xen-color-primary" placeholder="Type to Filter Rows" :value="searchText" @input="searchText = $event"></xen-input>
               <xen-data-table :rows="rows2" :columns="columns" :border="true" :filter="searchText" no-results="No Results to Display"></xen-data-table>
             </xen-card-content>
           </xen-card>
 
-          <!-- Default Component -->
+          <!-- Selection Table -->
           <xen-card>
             <xen-card-header background="#eee">
-              <h2 class="title">Bordered Table</h2>
+              <h2 class="title">Selection + Hover Table</h2>
             </xen-card-header>
             <xen-card-content>
               <xen-data-table :rows="rows3" :columns="columns" :hover="true" :selection="true" selection-key="selected" @selected="rows3 = $event"></xen-data-table>
             </xen-card-content>
           </xen-card>
 
-          <!-- Default Component -->
+          <!-- Editable Table -->
           <xen-card>
             <xen-card-header background="#eee">
-              <h2 class="title">Bordered Table</h2>
+              <h2 class="title">Editable + Striped Table</h2>
             </xen-card-header>
             <xen-card-content>
               <xen-data-table :rows="rows4" :columns="columnsEditable" :striped="true"></xen-data-table>
             </xen-card-content>
           </xen-card>
 
-          <!-- Default Component -->
+          <!-- Responsive Table -->
           <xen-card>
             <xen-card-header background="#eee">
-              <h2 class="title">Bordered Table</h2>
+              <h2 class="title">Responsive Table</h2>
             </xen-card-header>
             <xen-card-content>
-              <xen-data-table :rows="rows5" :columns="columns" :border="true" :filter="searchText" no-results="No Results to Display"></xen-data-table>
+              <xen-data-table :rows="rows5" :responsive="true" :columns="columns"></xen-data-table>
             </xen-card-content>
           </xen-card>
 
@@ -63,16 +64,52 @@
       <!-- Template Tab-->
       <div slot="Template">
         <div class="page-tab-content">
-
           <!-- Component Template -->
           <xen-card>
             <xen-card-header background="#eee">
-              <h2 class="title">Default Component</h2>
+              <h2 class="title">Default Table</h2>
             </xen-card-header>
             <xen-card-content class="xen-no-margin">
-              <pre><code class="language-html">{{ defaultDialogTemplate }}</code></pre>            
+              <pre><code class="language-html">{{ defaultTableTemplate }}</code></pre>            
             </xen-card-content>
           </xen-card>
+
+          <xen-card>
+            <xen-card-header background="#eee">
+              <h2 class="title">Bordered Table</h2>
+            </xen-card-header>
+            <xen-card-content class="xen-no-margin">
+              <pre><code class="language-html">{{ borderedTableTemplate }}</code></pre>            
+            </xen-card-content>
+          </xen-card>
+
+          <xen-card>
+            <xen-card-header background="#eee">
+              <h2 class="title">Selection + Hover Table</h2>
+            </xen-card-header>
+            <xen-card-content class="xen-no-margin">
+              <pre><code class="language-html">{{ selectionTableTemplate }}</code></pre>            
+            </xen-card-content>
+          </xen-card>
+
+          <xen-card>
+            <xen-card-header background="#eee">
+              <h2 class="title">Editable + Striped Table</h2>
+            </xen-card-header>
+            <xen-card-content class="xen-no-margin">
+              <pre><code class="language-html">{{ editableTableTemplate }}</code></pre>            
+            </xen-card-content>
+          </xen-card>
+
+          <xen-card>
+            <xen-card-header background="#eee">
+              <h2 class="title">Responsive Table</h2>
+            </xen-card-header>
+            <xen-card-content class="xen-no-margin">
+              <pre><code class="language-html">{{ responsiveTableTemplate }}</code></pre>            
+            </xen-card-content>
+          </xen-card>
+
 
         </div>
       </div>
@@ -81,13 +118,13 @@
       <div slot="Script">
         <div class="page-tab-content"> 
 
-          <!-- Default Component Script -->         
+          <!-- Default Table Script -->         
           <xen-card>
             <xen-card-header background="#eee">
-              <h2 class="title">Default Component</h2>
+              <h2 class="title">Default Table</h2>
             </xen-card-header>
             <xen-card-content class="xen-no-margin">
-              <pre><code class="language-javaScript">{{ dialogScript }}</code></pre>            
+              <pre><code class="language-javaScript">{{ tableScript }}</code></pre>            
             </xen-card-content>
           </xen-card>
 
@@ -106,6 +143,7 @@
   import XenButton from '../xen/Button'
   import XenDialog from '../xen/Dialog'
   import XenDataTable from '../xen/DataTable'
+  import XenInput from '../xen/Input'
   import Prism from 'prismjs'
 
   export default {
@@ -121,6 +159,7 @@
       XenCardContent,
       XenButton,
       XenDialog,
+      XenInput,
       XenDataTable
     },
 
@@ -292,45 +331,185 @@
           head: 'Age',
           key: 'age'
         }],
-        showDialog: {
-          small: false,
-          medium: false,
-          large: false
-        },
-        defaultDialogTemplate: `<xen-button :raised="true" @click.native="showDialog.small = true">Default Dialog</xen-button>
-<xen-dialog :show="showDialog.small" @hide="showDialog.small = false" title="Small Dialog" :small="true">
-  <p>Confirm you opened the dialog</p>
-  <div slot="actions">
-    <xen-button class="xen-color-primary" @click.native="showDialog.small = false">Cancel</xen-button>
-    <xen-button class="xen-color-primary" @click.native="showAlert('you clicked confirm', 'small')">Confirm</xen-button>
-  </div>
-</xen-dialog>`,
-        mediumDialogTemplate: `<xen-button :raised="true" @click.native="showDialog.medium = true">Medium Dialog</xen-button>
-<xen-dialog :show="showDialog.medium" @hide="showDialog.medium = false" title="Medium Dialog" :medium="true">
-  <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut placerat varius nulla. Aenean sit amet facilisis ante, bibendum volutpat diam. Donec quis lorem urna. Duis luctus convallis posuere. Aliquam venenatis odio sodales facilisis ullamcorper. In ut tincidunt mi. Nam eleifend, dui vel porta porttitor, dolor purus malesuada nibh, et rhoncus turpis tortor vitae risus. Duis nec arcu sem. Vivamus aliquet dictum turpis eu pharetra. Phasellus tempor sem ut metus porta, in blandit lorem pellentesque.</p>
-  <div slot="actions">
-    <xen-button class="xen-color-primary" @click.native="showDialog.medium = false">Cancel</xen-button>
-    <xen-button class="xen-color-primary" @click.native="showAlert('you clicked confirm', 'small')">Confirm</xen-button>
-  </div>
-</xen-dialog>`,
-        largeDialogTemplate: `<xen-button :raised="true" @click.native="showDialog.large = true">Large Dialog</xen-button>
-<xen-dialog :show="showDialog.large" @hide="showDialog.large = false" title="Large Dialog" :large="true">
-  <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut placerat varius nulla. Aenean sit amet facilisis ante, bibendum volutpat diam. Donec quis lorem urna. Duis luctus convallis posuere. Aliquam venenatis odio sodales facilisis ullamcorper. In ut tincidunt mi. Nam eleifend, dui vel porta porttitor, dolor purus malesuada nibh, et rhoncus turpis tortor vitae risus. Duis nec arcu sem. Vivamus aliquet dictum turpis eu pharetra. Phasellus tempor sem ut metus porta, in blandit lorem pellentesque.</p>
-  <p>Proin finibus aliquam ante, id convallis lectus aliquam ut. Ut porttitor felis sed vestibulum volutpat. In a tristique odio. Praesent velit leo, finibus in eleifend sed, faucibus a justo. Pellentesque cursus ultrices sem vitae ultricies. Maecenas porta accumsan accumsan. In congue dignissim eros vel fermentum. Curabitur nibh nunc, feugiat quis leo non, eleifend euismod nulla. Aenean pretium eu diam auctor viverra.</p>
-  <p>Vivamus eu odio gravida, tincidunt nulla et, interdum augue. Aenean in risus ut lectus pretium semper. Aliquam erat volutpat. Fusce dapibus rutrum justo et suscipit. Quisque nec tempus eros, id sollicitudin augue. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam luctus tellus eu commodo suscipit. Duis eget turpis erat. Ut dui velit, scelerisque id efficitur at, aliquam non erat. Aenean scelerisque faucibus cursus.</p>
-  <div slot="actions">
-    <xen-button class="xen-color-primary" @click.native="showDialog.large = false">Cancel</xen-button>
-    <xen-button class="xen-color-primary" @click.native="showAlert('you clicked confirm', 'large')">Confirm</xen-button>
-  </div>
-</xen-dialog>`,
-        dialogScript: `import XenDialog from '../xen/Dialog'
-import XenButton from '../xen/Button'
+        defaultTableTemplate: `<xen-data-table :rows="rows1" :columns="columns" order="name" :direction="-1"></xen-data-table>`,
+        borderedTableTemplate: `<xen-data-table :rows="rows2" :columns="columns" :border="true" :filter="searchText" no-results="No Results to Display"></xen-data-table>`,
+        selectionTableTemplate: `<xen-data-table :rows="rows3" :columns="columns" :hover="true" :selection="true" selection-key="selected" @selected="rows3 = $event"></xen-data-table>`,
+        editableTableTemplate: `<xen-data-table :rows="rows4" :columns="columnsEditable" :striped="true"></xen-data-table>`,
+        responsiveTableTemplate: `<xen-data-table :rows="rows5" :responsive="true" :columns="columns" :border="true" :filter="searchText" no-results="No Results to Display"></xen-data-table>`,
+        tableScript: `import XenDataTable from '../xen/DataTable'
 
 export default {
   components: {
-    XenDialog,
-    XenButton
+    XenDataTable
   }
+
+  data () {
+    return {
+      searchText: '',
+      rows1: [{
+        name: 'Jon',
+        house: 'Snow',
+        sigil: 'Wolf',
+        age: 21
+      }, {
+        name: 'Tyrion',
+        house: 'Lannister',
+        sigil: 'Lion',
+        age: 39
+      }, {
+        name: 'Daenerys',
+        house: 'Targaryen',
+        sigil: 'Dragon',
+        age: 21
+      }, {
+        name: 'Jorah',
+        house: 'Mormont',
+        sigil: 'Bear',
+        age: 50
+      }, {
+        name: 'Theon',
+        house: 'Greyjoy',
+        sigil: 'Kraken',
+        age: 21
+      }],
+
+      rows2: [{
+        name: 'Arya',
+        house: 'Stark',
+        sigil: 'Wolf',
+        age: 11
+      }, {
+        name: 'Stannis',
+        house: 'Baratheon',
+        sigil: 'Flaming Stag',
+        age: 40
+      }, {
+        name: 'Jamie',
+        house: 'Lannister',
+        sigil: 'Lion',
+        age: 36
+      }, {
+        name: 'Brienne',
+        house: 'Tarth',
+        sigil: 'Sun',
+        age: 32
+      }, {
+        name: 'Sandor',
+        house: 'Clegane',
+        sigil: 'Dog',
+        age: 35
+      }],
+
+      rows3: [{
+        name: 'Bran',
+        house: 'Stark',
+        sigil: 'Wolf',
+        age: 10
+      }, {
+        name: 'Barristan',
+        house: 'Selmy',
+        sigil: 'Wheat',
+        age: 60
+      }, {
+        name: 'Walder',
+        house: 'Frey',
+        sigil: 'The Twins',
+        age: 89
+      }, {
+        name: 'Jojen',
+        house: 'Reed',
+        sigil: 'Lizard-Lion',
+        age: 12
+      }, {
+        name: 'Loras',
+        house: 'Tyrell',
+        sigil: 'Rose',
+        age: 23
+      }],
+
+      rows4: [{
+        name: 'Sansa',
+        house: 'Stark',
+        sigil: 'Wolf',
+        age: 13
+      }, {
+        name: 'Robert',
+        house: 'Baratheon',
+        sigil: 'Stag',
+        age: 42
+      }, {
+        name: 'Cersei',
+        house: 'Lannister',
+        sigil: 'Lion',
+        age: 36
+      }, {
+        name: 'Margaery',
+        house: 'Tyrell',
+        sigil: 'Rose',
+        age: 18
+      }, {
+        name: 'Gregor',
+        house: 'Clegane',
+        sigil: 'Dog',
+        age: 40
+      }],
+
+      rows5: [{
+        name: 'Eddard',
+        house: 'Stark',
+        sigil: 'Wolf',
+        age: 41
+      }, {
+        name: 'Davos',
+        house: 'Seaworth',
+        sigil: 'Onion',
+        age: 42
+      }, {
+        name: 'Samwel',
+        house: 'Tarly',
+        sigil: 'Huntsman',
+        age: 17
+      }, {
+        name: 'Lysa',
+        house: 'Tully',
+        sigil: 'Fish',
+        age: 18
+      }, {
+        name: 'Viserys',
+        house: 'Targaryen',
+        sigil: 'Dragon',
+        age: 21
+      }],
+
+      columns: [{
+        head: 'Name',
+        key: 'name'
+      }, {
+        head: 'House',
+        key: 'house'
+      }, {
+        head: 'Sigil',
+        key: 'sigil'
+      }, {
+        head: 'Age',
+        key: 'age'
+      }],
+
+      columnsEditable: [{
+        head: 'Name',
+        key: 'name'
+      }, {
+        head: 'House',
+        key: 'house',
+        editable: true
+      }, {
+        head: 'Sigil',
+        key: 'sigil',
+        options: ['Wolf', 'Stag', 'Lion', 'Rose', 'Dog']
+      }, {
+        head: 'Age',
+        key: 'age'
+      }],
 }`
       }
     },

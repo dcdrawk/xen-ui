@@ -9,6 +9,7 @@ body {
   -webkit-tap-highlight-color: rgba(255, 255, 255, 0);
   // overflow: hidden;
   font-size: 0;
+  background-color: #fafafa;
 }
 
 .page-container {
@@ -87,4 +88,10 @@ pre[class*=language-] {
   > .xen-tab-content {
     padding-top: 40px;
   }
+}
+
+.disable-scroll {
+  position: fixed; 
+  overflow-y: scroll;
+  width: 100%;
 }

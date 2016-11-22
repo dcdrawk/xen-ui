@@ -14,6 +14,8 @@
           <span class="item-text">{{ text }}</span>
           <span v-if="secondaryText" class="secondary-text">{{ secondaryText }}</span>
         </span>
+
+        <slot name="dropdown"></slot>
       </div>
     </xen-ripple>
   </div>
@@ -43,7 +45,16 @@
     // Components
     components: {
       XenRipple
-    }
+    },
 
+    // Watch
+    watch: {
+      'text': {
+        handler: function (val, oldVal) {
+          console.log('text changed...')
+          this.text = val
+        }
+      }
+    }
   }
 </script>

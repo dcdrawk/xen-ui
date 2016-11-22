@@ -11,14 +11,14 @@
             <xen-card-header background="#eee">
               <h2 class="title">Single Line List</h2>
             </xen-card-header>
-            <xen-card-content>
+            <!-- <xen-card-content> -->
               <xen-list>
                 <xen-list-item text="Inbox"></xen-list-item>
                 <xen-list-item text="Sent"></xen-list-item>
                 <xen-list-item text="Drafts"></xen-list-item>
                 <xen-list-item text="Trash"></xen-list-item>
               </xen-list>
-            </xen-card-content>
+            <!-- </xen-card-content> -->
           </xen-card>
 
           <!-- Dense Single Line List -->
@@ -26,14 +26,14 @@
             <xen-card-header background="#eee">
               <h2 class="title">Dense Single Line List</h2>
             </xen-card-header>
-            <xen-card-content>
+            <!-- <xen-card-content> -->
               <xen-list :dense="true">
                 <xen-list-item text="Inbox"></xen-list-item>
                 <xen-list-item text="Sent"></xen-list-item>
                 <xen-list-item text="Drafts"></xen-list-item>
                 <xen-list-item text="Trash"></xen-list-item>
               </xen-list>
-            </xen-card-content>
+            <!-- </xen-card-content> -->
           </xen-card>
 
           <!-- Single Line List with Icons -->
@@ -41,14 +41,14 @@
             <xen-card-header background="#eee">
               <h2 class="title">Single Line List with Icons</h2>
             </xen-card-header>
-            <xen-card-content>
+            <!-- <xen-card-content> -->
               <xen-list>
                 <xen-list-item text="Inbox" icon="mail"></xen-list-item>
                 <xen-list-item text="Sent" icon="send"></xen-list-item>
                 <xen-list-item text="Drafts" icon="drafts"></xen-list-item>
                 <xen-list-item text="Trash" icon="delete"></xen-list-item>
               </xen-list>
-            </xen-card-content>
+            <!-- </xen-card-content> -->
           </xen-card>
 
           <!-- Single List List with Avatars + Icons -->
@@ -56,14 +56,14 @@
             <xen-card-header background="#eee">
               <h2 class="title">Single Line List with Avatars + Icons</h2>
             </xen-card-header>
-            <xen-card-content>
+            <!-- <xen-card-content> -->
               <xen-list>
                 <xen-list-item text="Inbox" icon="mail" :avatar="true"></xen-list-item>
                 <xen-list-item text="Sent" icon="send" :avatar="true"></xen-list-item>
                 <xen-list-item text="Drafts" icon="drafts" :avatar="true"></xen-list-item>
                 <xen-list-item text="Trash" icon="delete" :avatar="true"></xen-list-item>
               </xen-list>
-            </xen-card-content>
+            <!-- </xen-card-content> -->
           </xen-card>
 
           <!-- Two Line List -->
@@ -71,14 +71,14 @@
             <xen-card-header background="#eee">
               <h2 class="title">Two Line List</h2>
             </xen-card-header>
-            <xen-card-content>
+            <!-- <xen-card-content> -->
               <xen-list>
                 <xen-list-item text="Two Line Item" secondary-text="Duis autem vel eum iriure dolor in hendrerit in vulputate"></xen-list-item>
                 <xen-list-item text="Two Line Item" secondary-text="Lorem ipsum dolor sit amet, consectetur adipiscing elit"></xen-list-item>
                 <xen-list-item text="Two Line Item" secondary-text="Duis autem vel eum iriure dolor in hendrerit in vulputate velit esse"></xen-list-item>
                 <xen-list-item text="Two Line Item" secondary-text="Adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore erat volutpat."></xen-list-item>
               </xen-list>
-            </xen-card-content>
+            <!-- </xen-card-content> -->
           </xen-card>
 
           <!-- Multi-Line List -->
@@ -86,14 +86,14 @@
             <xen-card-header background="#eee">
               <h2 class="title">Multi-Line List</h2>
             </xen-card-header>
-            <xen-card-content>
+            <!-- <xen-card-content> -->
               <xen-list>
                 <xen-list-item icon="star" text="Two Line Item" secondary-text="Duis autem vel eum iriure dolor in hendrerit in vulputate" multi-line="true"></xen-list-item>
                 <xen-list-item text="Two Line Item" secondary-text="Lorem ipsum dolor sit amet, consectetur adipiscing elit" multi-line="true"></xen-list-item>
                 <xen-list-item text="Two Line Item" secondary-text="Duis autem vel eum iriure dolor in hendrerit in vulputate velit esse" multi-line="true"></xen-list-item>
                 <xen-list-item text="Two Line Item" secondary-text="Adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore erat volutpat." multi-line="true"></xen-list-item>
               </xen-list>
-            </xen-card-content>
+            <!-- </xen-card-content> -->
           </xen-card>
 
         </section>

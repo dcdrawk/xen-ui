@@ -96,6 +96,7 @@
   import XenList from './components/xen/List'
   import XenListItem from './components/xen/ListItem'
   import XenDivider from './components/xen/Divider'
+  import ScrollHelper from './components/xen/classes/ScrollHelper'
 
   export default {
     name: 'app',
@@ -115,6 +116,8 @@
     },
 
     mounted () {
+      // console.log(ScrollHelper)
+      // ScrollHelper.init()
       var path = window.location.hash
       var pathArray = path.replace(/-+/, '').replace(/#+/, '').replace(/\/+/, '').split('/')
 
@@ -128,6 +131,7 @@
       })
 
       window.onpopstate = (event) => {
+        document.body.scrollTop = 0
         setTimeout(() => {
           var path = this.$route.path
           var pathArray = path.replace(/-+/, '').replace(/\/+/, '').split('/')
@@ -143,6 +147,16 @@
     methods: {
       toggleSidebar () {
         if (window.innerWidth < 768) this.sidebarOpen = !this.sidebarOpen
+        // ScrollHelper.toggle()
+        if (this.sidebarOpen) {
+          ScrollHelper.disable()
+
+        //   // document.querySelector('html').classList.add('disable-scroll')
+        } else {
+        //   ScrollHelper.disableScroll = false
+          ScrollHelper.enable()
+        //   // document.querySelector('html').classList.remove('disable-scroll')
+        }
       },
       expand (list) {
         if (this.$refs[list].$el.style.height === '0px') {

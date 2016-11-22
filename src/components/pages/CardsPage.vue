@@ -36,6 +36,9 @@
                     <xen-card-content>
                       <p>Ea his congue ceteros reformidans. Cum in probo mundi dissentias, eum ut omnium vivendo dissentiunt. Vel cu dolores assentior. Ea natum phaedrum erroribus sea. Sea id dicant percipitur assueverit, prima ponderum torquatos ut eam.</p>
                     </xen-card-content>
+                    <xen-card-actions class="text-right">
+                      <xen-button class="xen-color-primary">Read More</xen-button>
+                    </xen-card-actions>
                   </xen-card>
                 </div>
 
@@ -96,7 +99,9 @@
   import XenCardHeader from '../xen/CardHeader'
   import XenCardContent from '../xen/CardContent'
   import XenCardMedia from '../xen/CardMedia'
+  import XenCardActions from '../xen/CardActions'
   import XenPageToolbar from '../xen/PageToolbar'
+  import XenButton from '../xen/Button'
   import Prism from 'prismjs'
 
   export default {
@@ -110,7 +115,9 @@
       XenCardHeader,
       XenCardContent,
       XenCardMedia,
-      XenPageToolbar
+      XenCardActions,
+      XenPageToolbar,
+      XenButton
     },
 
     // Data

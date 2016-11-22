@@ -1,18 +1,18 @@
 <template>
-  <div class="xen-dialog-container" :class="{ 'show': show }">
+  <div class="xen-dialog-container" :class="{ 'show': show, 'show-overflow': overflow }">
     <transition name="fade">
       <div class="xen-dialog-backdrop" @click="hideDialog();" v-if="show"></div>
     </transition>
 
     <!-- Dialog -->
     <transition name="dialog">
-      <div class="xen-dialog" v-if="show" :class="{ 'small': small, 'medium': medium, 'large': large, 'has-actions': $slots.actions }">
+      <div class="xen-dialog" v-if="show" :class="{ 'small': small, 'medium': medium, 'large': large, 'has-actions': $slots.actions, 'fullscreen': fullscreen }">
 
         <!-- Dialog Title -->
         <h3 class="xen-dialog-title title">{{ title }}</h3>
 
         <!-- Dialog Content -->
-        <div class="xen-dialog-content">
+        <div class="xen-dialog-content" :class="{ 'show-overflow': overflow }">
           <slot name="default"></slot>
         </div>
 
@@ -29,6 +29,11 @@
 
 <style lang="scss">
   @import './styles/dialog';
+  .xen-dialog-content.show-overflow,
+  .xen-dialog-container.show-overflow{
+    overflow-x: visible;
+    overflow-y: visible;
+  }
 </style>
 
 <script>
@@ -54,7 +59,9 @@
       'show',
       'small',
       'medium',
-      'large'
+      'large',
+      'overflow',
+      'fullscreen'
     ],
 
     // Methods

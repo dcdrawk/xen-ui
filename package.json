@@ -17,8 +17,11 @@
     "hammerjs": "^2.0.8",
     "node-sass": "^3.10.1",
     "prismjs": "^1.5.1",
+    "ramda": "^0.22.1",
     "sass-loader": "^4.0.2",
+    "vee-validate": "^1.0.0-beta.9",
     "vue": "^2.0.1",
+    "vue-clickaway": "^2.0.0",
     "vue-router": "^2.0.1",
     "vue-socket.io": "^2.0.0"
   },

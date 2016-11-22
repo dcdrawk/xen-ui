@@ -8,7 +8,6 @@
         <section class="xen-chat-example xen-page-background">
           <p class="xen-chat-message" v-for="msg in chatMessages">{{ msg }}</p>
 
-
           <div class="xen-chat-box text-right">
           <xen-textarea placeholder="Enter a Message" :value="msg" @input="msg = $event" @keydown.enter.native="send($event)"></xen-textarea>
 

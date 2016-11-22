@@ -42,6 +42,11 @@
       overflow-y: auto;
     }
 
+    .xen-dialog-content.show-overflow {
+      overflow-x: visible;
+      overflow-y: visible;
+    }
+
     &.has-actions .xen-dialog-content {
       max-height: calc(80vh - 68px - 44px);
     }
@@ -123,4 +128,18 @@
 
   }
 
+}
+
+.xen-dialog.fullscreen {
+  @media only screen and (max-width: $small-breakpoint) {
+    min-height: 100vh;
+    min-width: 100vw;
+    max-height: 100vh;
+    max-width: 100vw;
+    left: 0;
+    margin: 0;
+    .xen-dialog-actions-container {
+      position: absolute;      
+    }
+  }
 }

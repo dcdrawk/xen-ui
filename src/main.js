@@ -10,7 +10,19 @@ import App from './App'
 import VueRouter from 'vue-router'
 
 // Socket io implementation for VueJS
-import VueSocketio from 'vue-socket.io'
+// import VueSocketio from 'vue-socket.io'
+
+// Vue validation
+// https://github.com/logaretm/vee-validate
+import VeeValidate from 'vee-validate'
+const config = {
+  errorBagName: 'errors', // change if property conflicts.
+  delay: 0,
+  locale: 'en',
+  messages: null,
+  strict: true
+}
+Vue.use(VeeValidate, config)
 
 // Import the components for each page
 import Home from './components/Home'
@@ -39,7 +51,15 @@ console.log(GettingStartedPage)
 Vue.use(VueRouter)
 
 // use Vue Socket.io
-Vue.use(VueSocketio, '10.5.0.74:3000')
+// Vue.use(VueSocketio, '10.5.0.74:3000')
+
+// Set up an event bus
+var bus = new Vue({})
+Object.defineProperty(Vue.prototype, '$bus', {
+  get () {
+    return bus
+  }
+})
 
 // Map the Routes and Components
 var router = new VueRouter({
